@@ -257,6 +257,204 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/2024/02/03/2024-2-3-Dropbox/" target="_self">
+          BUUCTF [CISCN2019 华北赛区 Day1 Web1]Dropbox
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/02/03/2024-2-3-Dropbox/" target="_self">
+        <div>
+          [CISCN2019 华北赛区 Day1 Web1]Dropbox登录界面后发现存在文件上传，经过测试只允许上传图片文件: 存在下载，我们点击以后还是停留于当前的index.php界面，使用BP抓包拦截之后，发现存在download.php： 在download.php下存在filename传参，下载的文件内容会存在于响应界面中，猜测可以使用该参数实现任意文件读取. 读取index.php:pay
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-03 22:21" pubdate>
+              2024-02-03
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/02/03/2024-2-3-Welcome%20to%20Earth/" target="_self">
+          BUUCTF [b01lers2020]Welcome to Earth
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/02/03/2024-2-3-Welcome%20to%20Earth/" target="_self">
+        <div>
+          [b01lers2020]Welcome to Earth 查看网页源代码: 没有发现有用信息,但是网页的网址上出现&#x2F;die&#x2F;,猜测是进行了跳转，我们直接访问http://338a8f82-3c56-43a6-ba8e-a8c56b8f2b4f.node5.buuoj.cn:81/,并抓包: 发现存在一个&#x2F;chase&#x2F;,访问一下: 响应中发现了&#x2F;l
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-03 22:19" pubdate>
+              2024-02-03
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/02/03/2024-2-3-SimplePHP/" target="_self">
+          BUUCTF [SWPUCTF 2018]SimplePHP
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/02/03/2024-2-3-SimplePHP/" target="_self">
+        <div>
+          [SWPUCTF 2018]SimplePHP查看upload_file.php的前端代码: 可以知道flag在flag.php文件中  同时发现file.php存在文件内容读取点file,猜测可以利用该文件读取点读取一些文件信息: 读取文件信息:读取index.php文件信息:1file.php?file=index.php   index.php:1234&lt;?php header(&qu
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-03 21:53" pubdate>
+              2024-02-03
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/02/03/2024-2-3-Ezsqli/" target="_self">
+          BUUCTF [GYCTF2020]Ezsqli
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/02/03/2024-2-3-Ezsqli/" target="_self">
+        <div>
+          [GYCTF2020]Ezsqli参考:[GYCTF2020]Ezsqli_[gyctf2020]ezsqli 1-CSDN博客   注入点为POST请求获取的id参数 测试注入点之后，发现不返回报错信息，所以只能采用盲注的方式 测试盲注payload:payload1: 12POST:id=0   payload2: 12POST:id=1   产生两种不同的回显结果，所以可以采用普通盲注 构造
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-03 21:47" pubdate>
+              2024-02-03
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/02/03/2024-2-3-Easyweb%20/" target="_self">
+          BUUCTF [CISCN2019 总决赛 Day2 Web1]Easyweb
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/02/03/2024-2-3-Easyweb%20/" target="_self">
+        <div>
+          [CISCN2019 总决赛 Day2 Web1]Easyweb访问网页的robots.txt: 发现网页可以访问.php.bak文件，且匹配的文件名为*即所有文件的都可以，所以可以先尝试一下index.php.bak 访问一下index.php.bak: 发现不存在该文件，在网页的前端中还存在以下php文件:  12image.phpuser.php  访问上述文件的.php.bak文件: 成功
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-03 21:44" pubdate>
+              2024-02-03
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/02/03/2023-2-3-EasyLogin/" target="_self">
+          BUUCTF [HFCTF2020]EasyLogin
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/02/03/2023-2-3-EasyLogin/" target="_self">
+        <div>
+          [HFCTF2020]EasyLogin参考:[BUUCTF—HFCTF2020]EasyLogin保姆级详解。-CSDN博客 [刷题HFCTF2020]EasyLogin - kar3a - 博客园 (cnblogs.com) 注册一个账户登陆后: 查看网页的源代码:1234567891011121314151617181920212223242526272829&lt;html&gt;&lt;
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-03 21:37" pubdate>
+              2024-02-03
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/2024/02/03/2024-2-3-only_sql/" target="_self">
           第七届西湖论剑复现—only_sql-WP
         </a>
@@ -383,209 +581,11 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/10/09/2023-10-9-newstarweek2/" target="_self">
-          NewStarCTF 2023_第二周WP
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/10/09/2023-10-9-newstarweek2/" target="_self">
-        <div>
-          NewStarCTF 2023_第二周WP游戏高手 本题是一道游戏题，按照惯例，我们需要先查看的js: 得到一个app_v2.js文件，以及我们需要获得100000分才能显示flag 访问app_v2.js文件,我们直接定位到游戏结束时的处理代码: 显示一个alert提示框，使用ctrl+f寻找该提示框的具体位置: 在该代码中我们发现了api.php文件，对其进行访问:  对js代码进行代码审计:
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-10-09 12:00" pubdate>
-              2023-10-09
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/10/04/2023-10-4-Newstar_1/" target="_self">
-          NewStarCTF 2023_第一周WP
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/10/04/2023-10-4-Newstar_1/" target="_self">
-        <div>
-          NewStarCTF 2023_第一周WPErrorFlask 根据网页显示的内容，我们需要提供它一个number1和number2的值，没有告诉我们具体的请求方式，我们先用get请求先传输一个number1值试试: payload: 1?number1=1   发生报错，在报错信息中寻找一下有没有flag： 发现flag,这里应该是没有num2的值所以num2为空就报错显示了 Begin of
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-10-04 14:29" pubdate>
-              2023-10-04
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/09/25/2023-09-25-CNSS_ezhttp/" target="_self">
-          CNSS [Easy] ezhttp题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/25/2023-09-25-CNSS_ezhttp/" target="_self">
-        <div>
-          CNSS  [Easy] ezhttp1.查看题目描述: 这题考查的使http的请求，猜测可能是要对http的请求头的各个字段进行修改，则使用BP查看该网站的请求头 2.BP抓包该网站: 查看响应的内容中，有提示:只接受CNSS请求，游览器一般的请求方式为GET和POST，这里只接受CNSS请求，说明要将GET改成CNSS: 发现得到不同的响应结果: 1只能在安卓微信内置浏览器中请求  User-
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-25 15:00" pubdate>
-              2023-09-25
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/09/24/2023-09-24-polar%E7%A7%8B%E5%AD%A3%E4%B8%AA%E4%BA%BA%E8%B5%9B/" target="_self">
-          Polar秋季个人赛WEB_WP
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/24/2023-09-24-polar%E7%A7%8B%E5%AD%A3%E4%B8%AA%E4%BA%BA%E8%B5%9B/" target="_self">
-        <div>
-          Polar秋季个人赛WEB_WPezupload: url: 1http://2469cefa-72d1-4f8f-a274-87b44a1cc826.www.polarctf.com:8090/uploads/pass1.php  payload: 1pass=system(&#x27;cat ../flag.php&#x27;);   再来ping一波啊payload: base64绕过法格式
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-24 09:06" pubdate>
-              2023-09-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/29/2023-08-29-%5BDe1CTF%202019%5DSSRF%20Me/" target="_self">
-          BUUCTF_WEB_[De1CTF 2019]SSRF Me 题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/29/2023-08-29-%5BDe1CTF%202019%5DSSRF%20Me/" target="_self">
-        <div>
-          [De1CTF 2019]SSRF Me1.查看提示: 2.打开网页: 观察代码，感觉是flask注入,整理代码： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-29 15:03" pubdate>
-              2023-08-29
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/29/2023-08-29-Futurella&amp;Kookie/" target="_self">
-          BUUCTF_WEB_[BSidesCF 2019]Futurella &amp; [BSidesCF 2019]Kookie 题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/29/2023-08-29-Futurella&amp;Kookie/" target="_self">
-        <div>
-          [BSidesCF 2019]Futurella &amp; [BSidesCF 2019]Kookie 题解[BSidesCF 2019]Futurella：1.打开网页:  2.查看网页源代码，ctrl+f寻找flag： flag&#x3D;flag{bbc0ff54-a162-4d27-a1db-2e02a3bb9208} [BSidesCF 2019]Kookie:1.打开网页: 发现需要
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-29 14:54" pubdate>
-              2023-08-29
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
